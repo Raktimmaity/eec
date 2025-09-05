@@ -84,6 +84,7 @@ const App = () => {
           <Route path="/terms-of-service" element={<Terms />} />
           <Route path="/privacy-policy" element={<Privacy />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/404" element={<NotFound />} />
         </Routes>
         <Footer />
         <ScrollTopButton anchorId="hero" />
