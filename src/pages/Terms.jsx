@@ -168,9 +168,9 @@ export default function Terms() {
             </p>
           </motion.section>
 
-          <p className="text-[12px] text-slate-500">
+          {/* <p className="text-[12px] text-slate-500">
             These Terms are a template and not legal advice. Customize for your jurisdiction and agreements.
-          </p>
+          </p> */}
         </div>
       </section>
     </div>

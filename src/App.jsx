@@ -80,8 +80,8 @@ const App = () => {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/careers" element={<Career />} />
           <Route path="/careers/:slug" element={<JobDetail />} />
-          <Route path="/terms" element={<Terms />} />
-          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms-of-service" element={<Terms />} />
+          <Route path="/privacy-policy" element={<Privacy />} />
         </Routes>
         <Footer />
         <ScrollTopButton anchorId="hero" />

@@ -1,10 +1,10 @@
 // src/data/images.js
 export const IMAGES = {
-  academics: "/feature1.png",
-  students: "/feature2.png",
-  ai: "/feature3.png",
-  library: "/feature4.png",
-  exam: "/feature5.png",
-  hr: "/feature6.png",
-  finance: "/feature7.png",
+  academics: "/feature1_new.png",
+  students: "/feature2_new.png",
+  ai: "/feature3_new.png",
+  library: "/feature4_new.png",
+  exam: "/feature5_new.png",
+  hr: "/feature6_new.png",
+  finance: "/feature7_new.png",
 };

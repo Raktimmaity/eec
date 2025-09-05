@@ -6,25 +6,25 @@ const WhyEEC = () => {
   const items = [
     {
       title: "AI-Powered Learning Insights",
-      desc: "Analyze student progress with AI for personalized recommendations.",
+      desc: "EEC utilizes artificial intelligence to analyze student progress and learning patterns, offering personalized recommendations that enhance each student’s learning journey.",
       icon: <FaBrain className="text-4xl text-amber-600" />,
       corners: ["bg-amber-400/40", "bg-yellow-400/40"],
     },
     {
       title: "Adaptive Learning Paths",
-      desc: "Tailored content ensures each student learns at their own pace.",
+      desc: "With machine learning algorithms, EEC tailors educational content to the individual needs of each student, ensuring they learn at their own pace and level of understanding.",
       icon: <FaLaptopCode className="text-4xl text-amber-700" />,
       corners: ["bg-amber-300/40", "bg-amber-500/40"],
     },
     {
       title: "Advanced LMS Features",
-      desc: "Interactive lessons, gamification, and real-time assessments.",
+      desc: "EEC’s Learning Management System (LMS) is designed for the future of education, with tools for interactive lessons, gamified content, and real-time assessments that keep students engaged.",
       icon: <FaChartLine className="text-4xl text-emerald-600" />,
       corners: ["bg-emerald-400/40", "bg-teal-400/40"],
     },
     {
       title: "Data-Driven Monitoring",
-      desc: "Track performance and guide interventions precisely.",
+      desc: "Through AI and machine learning, EEC provides educators with real-time performance tracking, highlighting areas of improvement and helping create customized learning interventions for each student.",
       icon: <FaChartBar className="text-4xl text-sky-600" />,
       corners: ["bg-sky-400/40", "bg-indigo-400/40"],
     },

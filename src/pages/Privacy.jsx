@@ -132,9 +132,9 @@ export default function Privacy() {
             </p>
           </motion.section>
 
-          <p className="text-[12px] text-slate-500">
+          {/* <p className="text-[12px] text-slate-500">
             This policy is provided for general information and is not legal advice.
-          </p>
+          </p> */}
         </div>
       </section>
     </div>

@@ -101,8 +101,8 @@ export default function Navbar() {
         {/* Header */}
         <div className="flex items-center justify-between px-4 py-4 border-b bg-amber-50">
           <div className="flex items-center gap-2">
-            <img src="/assets/logo.png" alt="EEC Logo" className="h-8 w-auto" />
-            <span className="font-bold text-lg text-slate-900">EEC</span>
+            <img src="/logo_new.png" alt="EEC Logo" className="h-8 w-auto" />
+            {/* <span className="font-bold text-lg text-slate-900">EEC</span> */}
           </div>
           <button
             type="button"
