@@ -19,6 +19,7 @@ import Privacy from './pages/Privacy';
 import ScrollTopButton from './components/ScrollTopButton';
 import TopProgressBar from './components/TopProgressBar';
 import { useEffect } from 'react';
+import NotFound from './pages/NotFound';
 
 const App = () => {
 
@@ -82,6 +83,7 @@ const App = () => {
           <Route path="/careers/:slug" element={<JobDetail />} />
           <Route path="/terms-of-service" element={<Terms />} />
           <Route path="/privacy-policy" element={<Privacy />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
         <ScrollTopButton anchorId="hero" />

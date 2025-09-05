@@ -11,9 +11,9 @@ const fade = (d = 0) => ({
 
 const DEFAULT_FEATURES = [
   {
-    title: "AI-Driven Learning",
+    title: "Personalized, AI-Driven Learning",
     desc:
-      "EEC utilizes advanced AI to deliver tailored learning experiences, adapting to each student’s unique needs and pace for focused growth and deeper understanding.",
+      "EEC utilizes advanced AI to deliver tailored learning experiences, adapting to each student’s unique needs and pace. This dynamic approach ensures focused academic growth, fostering a deeper understanding of subjects.",
     icon: (
       <svg viewBox="0 0 24 24" className="w-7 h-7">
         <path
@@ -27,9 +27,9 @@ const DEFAULT_FEATURES = [
     dot: "bg-blue-500",
   },
   {
-    title: "Interactive Content",
+    title: "Engaging Interactive Content",
     desc:
-      "With multimedia-rich, real-world-based lessons, EEC transforms traditional learning into an immersive experience that informs and inspires.",
+      "With multimedia-rich, real-world-based lessons, EEC transforms traditional learning into an immersive experience. Students engage with content that not only informs but also motivates them to explore and excel.",
     icon: (
       <svg viewBox="0 0 24 24" className="w-7 h-7">
         <path
@@ -43,9 +43,9 @@ const DEFAULT_FEATURES = [
     dot: "bg-violet-500",
   },
   {
-    title: "Flexible Access",
+    title: "Seamless Flexiblility and Access",
     desc:
-      "Access learning materials anytime, anywhere, on any device—aligned to schedule, lifestyle, and pace for uninterrupted learning.",
+      "EEC offers unmatched flexibility, allowing students to access learning materials anytime, anywhere, on any device. This ensures that learning can continue uninterrupted, adapting to the student's schedule and pace.",
     icon: (
       <svg viewBox="0 0 24 24" className="w-7 h-7">
         <rect x="6" y="2" width="12" height="20" rx="2" ry="2"
@@ -57,9 +57,44 @@ const DEFAULT_FEATURES = [
     dot: "bg-slate-600",
   },
   {
-    title: "Real-Time Insights",
+    title: "Collaborative Learning and Future-Ready Skills",
     desc:
-      "AI-driven analytics track progress and provide timely insights so educators and learners stay aligned on goals through continuous feedback.",
+      "EEC fosters collaboration through froup projects and peer interaction while equipping students with critical skills such as problem-solving, digital literacy, and teamwork. These skills are essential for success in both academic and professional spheres.",
+
+    icon: (
+      <svg viewBox="0 0 24 24" className="w-7 h-7">
+        <path
+          d="M4 19V5m0 9 4-4 4 4 6-6m-2 0h2v2"
+          fill="none" stroke="currentColor" strokeWidth="1.8"
+          strokeLinecap="round" strokeLinejoin="round"
+        />
+      </svg>
+    ),
+    accent: "text-green-600",
+    dot: "bg-green-500",
+  },
+  {
+    title: "Personalized Learning Paths",
+    desc:
+      "EEC will use AI to analyze a student's progress, strengths and Weaknesses, then recomended customized study plans, worksheets then video lessons tailored to their needs",
+
+    icon: (
+      <svg viewBox="0 0 24 24" className="w-7 h-7">
+        <path
+          d="M4 19V5m0 9 4-4 4 4 6-6m-2 0h2v2"
+          fill="none" stroke="currentColor" strokeWidth="1.8"
+          strokeLinecap="round" strokeLinejoin="round"
+        />
+      </svg>
+    ),
+    accent: "text-green-600",
+    dot: "bg-green-500",
+  },
+  {
+    title: "Real-Time Performance Insights",
+    desc:
+      "Throgh continues feedback and AI-driven analytics, EEC tracks and monitors student progress, providing immediate insights and recommendations. This ensures that stdents and educators are always aligned with academic goals, facilitating timely interventions.",
+
     icon: (
       <svg viewBox="0 0 24 24" className="w-7 h-7">
         <path
