@@ -35,7 +35,7 @@ export default function NotFound() {
         <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
           <button
             onClick={() => navigate(-1)}
-            className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white border border-amber-200 hover:bg-amber-50 transition text-slate-900"
+            className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded bg-white border border-amber-200 hover:bg-amber-50 transition text-slate-900"
           >
             <FaArrowLeft className="opacity-80" />
             Go back
@@ -43,7 +43,7 @@ export default function NotFound() {
 
           <Link
             to="/"
-            className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-amber-500 hover:bg-amber-600 text-white transition shadow"
+            className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded bg-amber-500 hover:bg-amber-600 text-white transition shadow"
           >
             <FaHome />
             Home
