@@ -3,13 +3,17 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Typewriter } from "react-simple-typewriter";
-import hero1 from "/hero1.jpg";
+import hero1 from "/hero.jpg";
+import hero2 from "/hero2.jpeg";
+import hero3 from "/hero3.jpeg";
 
 const IMAGES = [
   // "https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=1200&auto=format&fit=crop",
   hero1,
-  "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=1200&auto=format&fit=crop",
+  // "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200&auto=format&fit=crop",
+  hero2,
+  // "https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=1200&auto=format&fit=crop",
+  hero3,
 ];
 
 const container = {
