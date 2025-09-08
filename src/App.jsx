@@ -25,11 +25,11 @@ const App = () => {
 
   useEffect(() => {
     // Disable right click
-    const disableContextMenu = (e) => e.preventDefault();
-    document.addEventListener("contextmenu", disableContextMenu);
+    // const disableContextMenu = (e) => e.preventDefault();
+    // document.addEventListener("contextmenu", disableContextMenu);
 
     // Disable text selection
-    document.addEventListener("selectstart", (e) => e.preventDefault());
+    // document.addEventListener("selectstart", (e) => e.preventDefault());
 
     // Disable copy
     document.addEventListener("copy", (e) => e.preventDefault());
@@ -50,8 +50,8 @@ const App = () => {
     document.addEventListener("keydown", disableShortcuts);
 
     return () => {
-      document.removeEventListener("contextmenu", disableContextMenu);
-      document.removeEventListener("selectstart", (e) => e.preventDefault());
+      // document.removeEventListener("contextmenu", disableContextMenu);
+      // document.removeEventListener("selectstart", (e) => e.preventDefault());
       document.removeEventListener("copy", (e) => e.preventDefault());
       document.removeEventListener("keydown", disableShortcuts);
     };

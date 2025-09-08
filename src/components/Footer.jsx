@@ -1,118 +1,170 @@
-import React from "react";
+// src/components/Footer.jsx
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FaInstagram, FaLinkedin, FaPhone } from "react-icons/fa";
+import { FaInstagram, FaLinkedin, FaPhone, FaFacebookF } from "react-icons/fa";
 import { FaEnvelope } from "react-icons/fa6";
-// import eecLogo from "@/assets/eec-logo.png";
 
 export default function Footer() {
+  // scroll-to-top visibility (you kept the FAB commented out; this is harmless to keep)
+  useEffect(() => {
+    const btn = document.getElementById("eec-top-btn");
+    const onScroll = () => {
+      if (!btn) return;
+      if (window.scrollY > 240) btn.classList.remove("opacity-0", "pointer-events-none");
+      else btn.classList.add("opacity-0", "pointer-events-none");
+    };
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const year = new Date().getFullYear();
+
   return (
-    <footer className="relative overflow-hidden text-slate-800 ">
-      {/* Container */}
-      <div className="max-w-7xl mx-auto px-6 pt-16 pb-10">
-        {/* CTA */}
-        <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900">
-            Get a demo of our digital solution and see how we transform your school
-          </h2>
-          <div className="mt-6">
-            <Link
-              to="/request-demo"
-              className="inline-block px-6 py-3 rounded-full text-white bg-amber-600 hover:bg-amber-700 shadow-lg transition font-semibold"
-            >
-              Request Demo
-            </Link>
+    <footer className="relative mt-24 text-slate-800 mb-8">
+      {/* Warm rounded band (no blue) */}
+      <div className="mx-3 md:mx-6 lg:mx-10 rounded-3xl bg-amber-50/80">
+        {/* Raised contact+map card */}
+        <div className="relative -top-10 mx-auto max-w-6xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 rounded-3xl overflow-hidden shadow-xl">
+            {/* Left: contact panel (amber gradient) */}
+            <div className="bg-gradient-to-b from-amber-500 to-amber-600 text-white p-8 md:p-10">
+              <h3 className="text-lg font-semibold">Get In Touch With Us</h3>
+              <div className="mt-2 h-0.5 w-12 bg-white/70 rounded" />
+
+              <div className="mt-6 space-y-5">
+                <div className="flex items-start gap-3">
+                  <div className="mt-0.5 text-white/95">
+                    <FaPhone />
+                  </div>
+                  <div className="text-sm leading-6">
+                    <p className="font-semibold">Phone Number</p>
+                    <p className="opacity-95">Contact: +91-9830590929</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <div className="mt-0.5 text-white/95">
+                    <FaEnvelope />
+                  </div>
+                  <div className="text-sm leading-6">
+                    <p className="font-semibold">Email</p>
+                    <a
+                      href="mailto:eec@electroniceducare.com"
+                      className="opacity-95 hover:opacity-100 underline underline-offset-4"
+                    >
+                      eec@electroniceducare.com
+                    </a>
+                  </div>
+                </div>
+
+                <div className="pt-2">
+                  <p className="text-sm font-semibold mb-2">Follow Us:</p>
+                  <div className="flex items-center gap-3 text-base">
+                    <a
+                      href="#"
+                      aria-label="Facebook"
+                      className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/15 hover:bg-white/25 transition"
+                    >
+                      <FaFacebookF />
+                    </a>
+                    <a
+                      href="#"
+                      aria-label="Instagram"
+                      className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/15 hover:bg-white/25 transition"
+                    >
+                      <FaInstagram />
+                    </a>
+                    <a
+                      href="#"
+                      aria-label="LinkedIn"
+                      className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/15 hover:bg-white/25 transition"
+                    >
+                      <FaLinkedin />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right: map/illustration */}
+            <div className="bg-white">
+              <iframe
+                title="EEC Map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3683.017692149047!2d88.348228!3d22.568716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0277a7b4b0f15b%3A0x4a0d4e2c0f8c1e8!2s19-B%2C%20Jawaharlal%20Nehru%20Rd%2C%20Maidan%2C%20New%20Market%20Area%2C%20Dharmatala%2C%20Taltala%2C%20Kolkata%2C%20West%20Bengal%20700087!5e0!3m2!1sen!2sin!4v1700000000000"
+                loading="lazy"
+                className="h-full w-full min-h-[280px]"
+              />
+            </div>
           </div>
         </div>
 
-        {/* Tagline (soft, optional) */}
-        {/* <p className="text-3xl md:text-4xl font-extrabold text-amber-300/60 text-center mt-14 select-none">
-          The future is here. Embrace it now!
-        </p> */}
-
-        {/* Middle: logo + columns */}
-        <div className="mt-12 md:mt-28 grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
-          {/* Brand / Contact / Socials */}
-          <div className="flex flex-col gap-4">
-            <Link to="/">
-              <img src="/logo_new.png" alt="EEC" className="w-48 hover:scale-105 transition-all" />
-            </Link>
-            {/* <div className="text-2xl font-bold">
-              <span className="text-slate-900">EEC</span>
-              <span className="text-amber-600">.</span>
-            </div> */}
-
-            <div className="flex items-center gap-3 text-sm text-slate-700">
-              <FaEnvelope className="shrink-0" />
-              <a href="mailto:eec@electroniceducare.com" className="hover:text-amber-700">
-                eec@electroniceducare.com
-              </a>
-            </div>
-            <div className="flex items-center gap-3 text-sm text-slate-700">
-              <FaPhone className="shrink-0" />
-              <a href="tel:+919830590929" className="hover:text-amber-700">
-                +91 9830590929
-              </a>
+        {/* Links + logo row */}
+        <div className="mx-auto max-w-6xl px-6 pb-10">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10">
+            {/* Columns */}
+            <div className="md:col-span-3">
+              <h4 className="text-slate-900 font-semibold">School Solutions</h4>
+              <div className="mt-2 h-0.5 w-10 bg-amber-300 rounded" />
+              <ul className="mt-3 text-[13px] leading-6 text-slate-700 space-y-1">
+                <li>School Management Software</li>
+                <li>School ERP Software</li>
+                <li>Preschool Management Software</li>
+                <li>School mobile Apps</li>
+                <li>Website Development</li>
+                <li>Experiential Learning Solutions</li>
+              </ul>
             </div>
 
-            <div className="flex items-center gap-3 pt-2">
-              <a
-                href="#"
-                className="p-2 rounded-full border border-amber-200 bg-white hover:bg-amber-50 transition"
-                aria-label="Instagram"
-              >
-                <FaInstagram />
-              </a>
-              <a
-                href="#"
-                className="p-2 rounded-full border border-amber-200 bg-white hover:bg-amber-50 transition"
-                aria-label="LinkedIn"
-              >
-                <FaLinkedin />
-              </a>
+            <div className="md:col-span-3">
+              <h4 className="text-slate-900 font-semibold">Services</h4>
+              <div className="mt-2 h-0.5 w-10 bg-amber-300 rounded" />
+              <ul className="mt-3 text-[13px] leading-6 text-slate-700 space-y-1">
+                <li>E-Learning Software</li>
+                <li>Online Classes</li>
+                <li>Payment Gateway</li>
+                <li>School Mobile App</li>
+                <li>Finance Management</li>
+              </ul>
+            </div>
+
+            <div className="md:col-span-3">
+              <h4 className="text-slate-900 font-semibold">Contact Us</h4>
+              <div className="mt-2 h-0.5 w-10 bg-amber-300 rounded" />
+              <ul className="mt-3 text-[13px] leading-6 text-slate-700 space-y-1">
+                <li><Link to="/contact" className="hover:text-amber-700">Contact Us</Link></li>
+                <li><Link to="/careers" className="hover:text-amber-700">Career</Link></li>
+                <li><Link to="/request-demo" className="hover:text-amber-700">Request A Demo</Link></li>
+                <li><Link to="/account-guidelines" className="hover:text-amber-700">Account Guidelines</Link></li>
+              </ul>
+            </div>
+
+            {/* Right block: logo + subline */}
+            <div className="md:col-span-3 flex flex-col items-start md:items-end justify-between">
+              <div className="flex flex-col items-start md:items-end">
+                <img
+                  src="/logo_new.png"
+                  alt="EEC"
+                  className="h-14 md:h-16 object-contain"
+                />
+                <p className="text-[12px] text-slate-600 mt-1">
+                  Accelerating School’s Growth
+                </p>
+              </div>
             </div>
           </div>
 
-          {/* Columns */}
-          <div>
-            <h4 className="text-sm font-semibold text-slate-600 uppercase tracking-wider">Quick Links</h4>
-            <ul className="mt-4 space-y-2 text-sm">
-              <li><Link to="/" className="hover:text-amber-700">Home</Link></li>
-              <li><Link to="/about" className="hover:text-amber-700">About Us</Link></li>
-              {/* <li><Link to="/academy" className="hover:text-amber-700">EEC Academy</Link></li>
-              <li><Link to="/portfolio" className="hover:text-amber-700">Our Portfolio</Link></li> */}
-            </ul>
-          </div>
+          {/* subtle divider */}
+          <div className="mt-6 border-t border-amber-200/70" />
 
-          <div>
-            <h4 className="text-sm font-semibold text-slate-600 uppercase tracking-wider">Company</h4>
-            <ul className="mt-4 space-y-2 text-sm">
-              <li><Link to="/about" className="hover:text-amber-700">About Us</Link></li>
-              <li><Link to="/contact" className="hover:text-amber-700">Contact Us</Link></li>
-            </ul>
+          {/* copyright row */}
+          <div className="py-4 text-center text-[12px] text-slate-600">
+            © Copyright {year}, All Rights Reserved With EEC.
           </div>
-
-          <div>
-            <h4 className="text-sm font-semibold text-slate-600 uppercase tracking-wider">Legal</h4>
-            <ul className="mt-4 space-y-2 text-sm">
-              <li><Link to="/terms-of-service" className="hover:text-amber-700">Terms of Service</Link></li>
-              <li><Link to="/privacy-policy" className="hover:text-amber-700">Privacy Policy</Link></li>
-            </ul>
-          </div>
-        </div>
-
-        {/* Divider */}
-        <div className="mt-10 h-px w-full bg-gradient-to-r from-transparent via-black/30 to-transparent" />
-
-        {/* Bottom bar */}
-        <div className="mt-4 flex flex-col md:flex-row items-center justify-center text-xs text-slate-500">
-          <div>
-            All rights reserved. <span className="text-slate-700 font-medium">EEC</span> © {new Date().getFullYear()}
-          </div>
-          {/* <div className="mt-3 md:mt-0">
-            Web design &amp; dev: <span className="text-slate-700 font-medium">EEC Team</span>
-          </div> */}
         </div>
       </div>
+
+      {/* If you want the floating buttons back later, just uncomment
+      the buttons you already have below; the amber theme will still fit. */}
     </footer>
   );
 }

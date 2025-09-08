@@ -1,136 +1,137 @@
-import React, { useMemo } from "react";
-import { LazyMotion, m, domAnimation } from "framer-motion";
-import { FaBrain, FaChartLine, FaLaptopCode, FaChartBar } from "react-icons/fa";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { FaBrain, FaLaptopCode, FaChartLine, FaChartBar } from "react-icons/fa";
+import eecLogo from "/service.jpg"; // keep in /public for best results
 
-const WhyEEC = React.memo(() => {
-  const items = useMemo(() => ([
-    {
-      title: "AI-Powered Learning Insights",
-      desc: "EEC utilizes artificial intelligence to analyze student progress and learning patterns, offering personalized recommendations that enhance each student’s learning journey.",
-      icon: <FaBrain className="text-4xl text-amber-600" />,
-      corners: ["bg-amber-300/35", "bg-yellow-300/35"],
-    },
-    {
-      title: "Adaptive Learning Paths",
-      desc: "With machine learning algorithms, EEC tailors educational content to the individual needs of each student, ensuring they learn at their own pace and level of understanding.",
-      icon: <FaLaptopCode className="text-4xl text-amber-700" />,
-      corners: ["bg-amber-200/35", "bg-amber-400/35"],
-    },
-    {
-      title: "Advanced LMS Features",
-      desc: "EEC’s Learning Management System (LMS) is designed for the future of education, with tools for interactive lessons, gamified content, and real-time assessments that keep students engaged.",
-      icon: <FaChartLine className="text-4xl text-emerald-600" />,
-      corners: ["bg-emerald-300/35", "bg-teal-300/35"],
-    },
-    {
-      title: "Data-Driven Monitoring",
-      desc: "Through AI and machine learning, EEC provides educators with real-time performance tracking, highlighting areas of improvement and helping create customized learning interventions for each student.",
-      icon: <FaChartBar className="text-4xl text-sky-600" />,
-      corners: ["bg-sky-300/35", "bg-indigo-300/35"],
-    },
-  ]), []);
+export default function WhyEEC() {
+  const features = [
+    { title: "AI-Powered Learning Insights", desc: "EEC utilizes artificial intelligence to analyze student progress and learning patterns, offering personalized recommendations that enhance each student’s learning journey.", icon: <FaBrain className="text-3xl" /> },
+    { title: "Adaptive Learning Paths", desc: "With machine learning, EEC tailors content to each student’s needs so they learn at the right pace.", icon: <FaLaptopCode className="text-3xl" /> },
+    { title: "Advanced LMS Features", desc: "Interactive lessons, gamified content, and real-time assessments keep students engaged.", icon: <FaChartLine className="text-3xl" /> },
+    { title: "Data-Driven Monitoring", desc: "Real-time performance tracking highlights gaps and helps craft interventions.", icon: <FaChartBar className="text-3xl" /> },
+  ];
 
-  // Parent/child variants for fewer observers + better batching
-  const container = {
-    hidden: { opacity: 0, y: 20 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, when: "beforeChildren", staggerChildren: 0.12 },
-    },
-  };
+  const stats = [
+    { value: "25+", label: "Successful Years" },
+    { value: "2000+", label: "Schools" },
+    { value: "4", label: "Products" },
+    { value: "2M", label: "App Downloads" },
+    { value: "28", label: "States" },
+    { value: "400+", label: "Staff" },
+  ];
 
-  const itemV = {
-    hidden: { opacity: 0, y: 28, scale: 0.98 },
-    show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.45, ease: "easeOut" } },
+  // track which cards are flipped (index -> boolean)
+  const [flipped, setFlipped] = useState({});
+
+  const toggleFlip = (idx) => {
+    setFlipped((f) => ({ ...f, [idx]: !f[idx] }));
   };
 
   return (
     <section
-      className="relative py-20 px-6 overflow-hidden"
-      style={{
-        contentVisibility: "auto",           // skip layout/paint offscreen
-        containIntrinsicSize: "800px",       // reserve space to avoid reflow
-      }}
+      className="
+        relative py-20 px-6
+        bg-cover bg-center
+        md:bg-fixed               /* parallax effect on md+ for better mobile perf */
+      "
+      style={{ backgroundImage: `url(${eecLogo})` }}
+      aria-label="Why EEC section with background image"
     >
-      {/* Decorative glows — keep light to avoid heavy blurs */}
-      <div className="pointer-events-none absolute top-10 left-10 w-60 h-60 rounded-full bg-amber-300/25 blur-2xl -z-10" />
-      <div className="pointer-events-none absolute bottom-10 right-10 w-60 h-60 rounded-full bg-amber-200/25 blur-2xl -z-10" />
+      {/* Dark overlay + subtle gradient for better text contrast */}
+      <div className="pointer-events-none absolute inset-0 bg-black/20"></div>
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-l from-black/50 via-black/40 to-transparent"></div>
 
-      <LazyMotion features={domAnimation} strict>
-        <m.h2
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.6 }}
-          variants={container}
-          className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6 text-center"
+      {/* Right-side content */}
+      <div className="relative max-w-7xl mx-auto flex justify-end">
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="w-full lg:w-1/2 space-y-6 text-white"
         >
-          Why Choose <span className="text-amber-600">EEC?</span>
-        </m.h2>
+          <h2 className="text-3xl md:text-4xl font-extrabold">
+            Why <span className="text-amber-300">EEC?</span>
+          </h2>
 
-        <m.p
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.6 }}
-          variants={container}
-          className="text-slate-600 max-w-2xl mx-auto mb-14 text-lg text-center"
-        >
-          EEC blends <span className="font-semibold text-slate-800">AI, adaptive learning,</span> and a robust LMS to deliver a{" "}
-          <span className="font-semibold text-amber-700">future-ready educational experience.</span>
-        </m.p>
+          <p className="text-lg text-white/90">
+            The First Choice for <strong>AI-Powered ERP &amp; LMS Solutions</strong> in Education.
+            EEC transforms institutions from <span className="font-semibold text-amber-200">good to the best</span>.
+          </p>
 
-        <m.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.25 }}
-          variants={container}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-6xl mx-auto"
-        >
-          {items.map((item, i) => (
-            <m.article
-              key={i}
-              variants={itemV}
-              className={[
-                "relative group p-6 md:p-8 rounded-2xl border border-amber-200",
-                // Removed backdrop-blur (expensive); keep semi-transparent background for glass vibe
-                "bg-white/80",
-                // Lighter shadow to reduce paint cost
-                "shadow-md hover:shadow-lg transition-shadow duration-200",
-                // GPU accel + will-change for smoothness
-                "transform-gpu",
-                "md:hover:scale-[1.02]",        // no hover scale on touch devices
-              ].join(" ")}
-              style={{ willChange: "transform, opacity" }}
-            >
-              {/* Soft corner glows (reduced size/blur) */}
-              <div className={`absolute -top-4 -left-4 w-16 h-16 ${item.corners[0]} rounded-full blur-xl opacity-70`} />
-              <div className={`absolute -bottom-4 -right-4 w-16 h-16 ${item.corners[1]} rounded-full blur-xl opacity-70`} />
+          {/* Features (glass cards) */}
+          <div className="grid sm:grid-cols-2 gap-4 pt-2">
+            {features.map((f, i) => {
+              const isFlipped = !!flipped[i];
+              return (
+                <div
+                  key={i}
+                  role="button"
+                  tabIndex={0}
+                  aria-pressed={isFlipped}
+                  onClick={() => toggleFlip(i)}
+                  onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && toggleFlip(i)}
+                  className="flex items-start gap-3 p-4 rounded-xl bg-white/10 backdrop-blur border border-white/10 cursor-pointer select-none"
+                  style={{ perspective: "1000px" }} // gives depth for 3D
+                >
+                  {/* 3D flip wrapper */}
+                  <div
+                    className="relative w-full"
+                    style={{
+                      transformStyle: "preserve-3d",
+                      transition: "transform 600ms cubic-bezier(.2,.85,.25,1)",
+                      transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
+                      minHeight: "112px", // keep height stable across faces
+                    }}
+                  >
+                    {/* FRONT: icon + title (minimal) */}
+                    <div
+                      className="absolute inset-0 flex items-start gap-3"
+                      style={{ backfaceVisibility: "hidden" }}
+                    >
+                      <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center text-amber-300 animate-bounce">
+                        {f.icon}
+                      </div>
+                      <div className="pr-2">
+                        <h3 className="font-semibold">{f.title}</h3>
+                        <p className="text-xs text-white/60 mt-1">Click to see details</p>
+                      </div>
+                    </div>
 
-              <div className="relative z-10 flex flex-col items-center text-center">
-                <div className="mb-4 flex items-center justify-center w-16 h-16 rounded-full bg-amber-50 shadow">
-                  {item.icon}
+                    {/* BACK: details (desc) */}
+                    <div
+                      className="absolute inset-0 flex items-start gap-3"
+                      style={{
+                        transform: "rotateY(180deg)",
+                        backfaceVisibility: "hidden",
+                      }}
+                    >
+                      <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center text-amber-300">
+                        {f.icon}
+                      </div>
+                      <div className="pr-2">
+                        <h3 className="font-semibold">{f.title}</h3>
+                        <p className="text-sm text-white/80">{f.desc}</p>
+                        <p className="text-[11px] text-white/60 mt-1">Click to flip back</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <h3 className="font-bold text-lg mb-2 text-slate-900">{item.title}</h3>
-                <p className="text-sm text-slate-700 leading-relaxed">{item.desc}</p>
-              </div>
-            </m.article>
-          ))}
-        </m.div>
+              );
+            })}
+          </div>
 
-        {/* Respect prefers-reduced-motion */}
-        <style>{`
-          @media (prefers-reduced-motion: reduce) {
-            * {
-              animation-duration: 0.001ms !important;
-              animation-iteration-count: 1 !important;
-              transition-duration: 0.001ms !important;
-              scroll-behavior: auto !important;
-            }
-          }
-        `}</style>
-      </LazyMotion>
+          {/* Stats */}
+          {/* <div className="mt-6 pt-6 grid grid-cols-2 sm:grid-cols-3 gap-6 text-center border-t border-white/20">
+            {stats.map((s, i) => (
+              <div key={i}>
+                <p className="text-xl md:text-2xl font-bold text-amber-300">{s.value}</p>
+                <p className="text-sm text-white/85">{s.label}</p>
+              </div>
+            ))}
+          </div> */}
+        </motion.div>
+      </div>
     </section>
   );
-});
-
-export default WhyEEC;
+}

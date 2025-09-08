@@ -3,9 +3,12 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Typewriter } from "react-simple-typewriter";
-import hero1 from "/hero.jpg";
-import hero2 from "/hero2.jpeg";
-import hero3 from "/hero3.jpeg";
+// import hero1 from "/hero.jpg";
+import hero1 from "/Home.jpg";
+// import hero2 from "/hero2.jpeg";
+import hero2 from "/LMS System.jpg";
+// import hero3 from "/hero3.jpeg";
+import hero3 from "/ERP.jpg";
 
 const IMAGES = [
   // "https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=1200&auto=format&fit=crop",
@@ -73,7 +76,8 @@ export default function Hero() {
             <motion.div variants={up} className="mt-6 flex flex-col items-center gap-3 sm:flex-row md:justify-start">
               <Link
                 to="/enquiry"
-                className="inline-flex items-center justify-center rounded bg-gradient-to-tr from-yellow-300 via-yellow-400 to-yellow-600 text-slate-900 px-5 py-3 font-semibold shadow-lg transition hover:bg-amber-500"
+                // className="inline-flex items-center justify-center rounded bg-gradient-to-tr from-yellow-300 via-yellow-400 to-yellow-600 text-slate-900 px-5 py-3 font-semibold shadow-lg transition hover:bg-amber-500"
+                className="inline-flex items-center justify-center rounded bg-amber-400 text-slate-900 px-5 py-3 font-semibold shadow-lg transition hover:bg-amber-500"
               >
                 Get a Demo
               </Link>

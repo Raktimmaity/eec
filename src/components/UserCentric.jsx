@@ -1,28 +1,32 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaBolt, FaGlobe, FaLaptopCode } from "react-icons/fa";
+
+// Use your uploaded images
+import speedImg from "/Speed Optimized for All Users.jpg";
+import webImg from "/Web-Based Convenience.jpg";
+import uiImg from "/Intuitive Interface.jpg";
 
 const userCentricFeatures = [
   {
     title: "Speed Optimized for All Users",
-    desc: "Lightweight and fast, even on slower internet connections.",
-    icon: <FaBolt className="text-amber-500 text-4xl" />,
+    desc: "At EEC, we understand that internet speeds can vary. To ensure a smooth experience, we’ve made our app lightweight and optimized for fast loading, so you can access content quickly, even with slower internet connections.",
+    img: speedImg,
   },
   {
     title: "Web-Based Convenience",
-    desc: "No installs. Works on any device with a browser.",
-    icon: <FaGlobe className="text-sky-500 text-4xl" />,
+    desc: "EEC is fully web-based, requiring no software installation. Access the platform easily from any device with an internet connection, offering flexibility and convenience for students, teachers, and parents, wherever you are.",
+    img: webImg,
   },
   {
     title: "Intuitive Interface",
-    desc: "Simple, clean UI that anyone can use comfortably.",
-    icon: <FaLaptopCode className="text-purple-500 text-4xl" />,
+    desc: "EEC offers an easy-to-use platform with a simple, intuitive interface. Whether you’re a student, teacher, or parent, the navigation is straightforward, ensuring everyone can access the features effortlessly. No prior technical knowledge is required, making it ideal for all age groups and user experience levels.",
+    img: uiImg,
   },
 ];
 
 const UserCentric = () => {
   return (
-    <section className="relative py-20">
+    <section className="relative py-20 ">
       <motion.h2
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -33,7 +37,7 @@ const UserCentric = () => {
         User-Centric Design & Seamless Access
       </motion.h2>
 
-      <div className="grid gap-10 md:grid-cols-3 max-w-7xl mx-auto px-6">
+      <div className="grid gap-12 md:grid-cols-3 max-w-7xl mx-auto px-6">
         {userCentricFeatures.map((feature, idx) => (
           <motion.div
             key={idx}
@@ -41,16 +45,29 @@ const UserCentric = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: idx * 0.2 }}
-            className="relative bg-white/75 backdrop-blur-xl rounded-3xl shadow-xl p-8 border border-amber-200 hover:shadow-2xl hover:scale-[1.03] transition group"
+            className="relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:scale-[1.04] transition"
           >
-            <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-amber-200/20 to-amber-100/20 opacity-0 group-hover:opacity-100 transition" />
-            <div className="relative z-10 flex flex-col items-center text-center space-y-4">
-              <div className="w-16 h-16 flex items-center justify-center rounded-full bg-amber-100 shadow-lg">
-                {feature.icon}
-              </div>
-              <h3 className="text-xl font-bold text-slate-900">{feature.title}</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">{feature.desc}</p>
+            {/* Image Section */}
+            <div className="h-48 w-full overflow-hidden">
+              <img
+                src={feature.img}
+                alt={feature.title}
+                className="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
+              />
             </div>
+
+            {/* Content Section */}
+            <div className="p-6 flex flex-col items-center text-center space-y-3">
+              <h3 className="text-xl font-bold text-slate-900">
+                {feature.title}
+              </h3>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                {feature.desc}
+              </p>
+            </div>
+
+            {/* Gradient overlay for hover effect */}
+            <div className="absolute inset-0 bg-gradient-to-t from-amber-200/30 via-transparent to-transparent opacity-0 hover:opacity-100 transition duration-500" />
           </motion.div>
         ))}
       </div>

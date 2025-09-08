@@ -6,6 +6,7 @@ import Features from "./Features";
 import UserCentric from "../components/UserCentric";
 import TopBar from "../components/TopBar";
 import Contact from "../components/Contact";
+import HeroEEC from "../components/HeroEEC";
 // Footer stays in App
 
 const Home = () => {
@@ -17,7 +18,8 @@ const Home = () => {
       {/* <Highlights /> */}
       <Features />
       <UserCentric />
-      <Contact />
+      <HeroEEC />
+      {/* <Contact /> */}
     </>
   );
 };

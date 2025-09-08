@@ -1,14 +1,18 @@
-// Features.jsx
+// FeaturesPage.jsx
 import React from "react";
 import { motion } from "framer-motion";
 
-// Animate on mount (no whileInView / viewport)
+// ===== Image path (put Features.jpg into /public as features-hero.jpg) =====
+const HERO_IMAGE = "/Features.jpg";
+
+// Animate on mount
 const fade = (d = 0) => ({
   initial: { opacity: 0, y: 14 },
   animate: { opacity: 1, y: 0 },
   transition: { duration: 0.45, ease: "easeOut", delay: d },
 });
 
+// --- Your existing features (kept as-is) ---
 const DEFAULT_FEATURES = [
   {
     title: "Personalized, AI-Driven Learning",
@@ -16,11 +20,9 @@ const DEFAULT_FEATURES = [
       "EEC utilizes advanced AI to deliver tailored learning experiences, adapting to each student’s unique needs and pace. This dynamic approach ensures focused academic growth, fostering a deeper understanding of subjects.",
     icon: (
       <svg viewBox="0 0 24 24" className="w-7 h-7">
-        <path
-          d="M8 10h8M8 14h5M4 9a8 8 0 1116 0v6a8 8 0 11-16 0V9z"
+        <path d="M8 10h8M8 14h5M4 9a8 8 0 1116 0v6a8 8 0 11-16 0V9z"
           fill="none" stroke="currentColor" strokeWidth="1.6"
-          strokeLinecap="round" strokeLinejoin="round"
-        />
+          strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
     accent: "text-blue-600",
@@ -32,11 +34,9 @@ const DEFAULT_FEATURES = [
       "With multimedia-rich, real-world-based lessons, EEC transforms traditional learning into an immersive experience. Students engage with content that not only informs but also motivates them to explore and excel.",
     icon: (
       <svg viewBox="0 0 24 24" className="w-7 h-7">
-        <path
-          d="M12 3v18M5 8l7-5 7 5M5 16l7 5 7-5"
+        <path d="M12 3v18M5 8l7-5 7 5M5 16l7 5 7-5"
           fill="none" stroke="currentColor" strokeWidth="1.6"
-          strokeLinecap="round" strokeLinejoin="round"
-        />
+          strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
     accent: "text-violet-600",
@@ -60,14 +60,11 @@ const DEFAULT_FEATURES = [
     title: "Collaborative Learning and Future-Ready Skills",
     desc:
       "EEC fosters collaboration through froup projects and peer interaction while equipping students with critical skills such as problem-solving, digital literacy, and teamwork. These skills are essential for success in both academic and professional spheres.",
-
     icon: (
       <svg viewBox="0 0 24 24" className="w-7 h-7">
-        <path
-          d="M4 19V5m0 9 4-4 4 4 6-6m-2 0h2v2"
+        <path d="M4 19V5m0 9 4-4 4 4 6-6m-2 0h2v2"
           fill="none" stroke="currentColor" strokeWidth="1.8"
-          strokeLinecap="round" strokeLinejoin="round"
-        />
+          strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
     accent: "text-green-600",
@@ -77,14 +74,11 @@ const DEFAULT_FEATURES = [
     title: "Personalized Learning Paths",
     desc:
       "EEC will use AI to analyze a student's progress, strengths and Weaknesses, then recomended customized study plans, worksheets then video lessons tailored to their needs",
-
     icon: (
       <svg viewBox="0 0 24 24" className="w-7 h-7">
-        <path
-          d="M4 19V5m0 9 4-4 4 4 6-6m-2 0h2v2"
+        <path d="M4 19V5m0 9 4-4 4 4 6-6m-2 0h2v2"
           fill="none" stroke="currentColor" strokeWidth="1.8"
-          strokeLinecap="round" strokeLinejoin="round"
-        />
+          strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
     accent: "text-green-600",
@@ -94,14 +88,11 @@ const DEFAULT_FEATURES = [
     title: "Real-Time Performance Insights",
     desc:
       "Throgh continues feedback and AI-driven analytics, EEC tracks and monitors student progress, providing immediate insights and recommendations. This ensures that stdents and educators are always aligned with academic goals, facilitating timely interventions.",
-
     icon: (
       <svg viewBox="0 0 24 24" className="w-7 h-7">
-        <path
-          d="M4 19V5m0 9 4-4 4 4 6-6m-2 0h2v2"
+        <path d="M4 19V5m0 9 4-4 4 4 6-6m-2 0h2v2"
           fill="none" stroke="currentColor" strokeWidth="1.8"
-          strokeLinecap="round" strokeLinejoin="round"
-        />
+          strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
     accent: "text-green-600",
@@ -112,64 +103,95 @@ const DEFAULT_FEATURES = [
 export default function FeaturesPage({ items = DEFAULT_FEATURES }) {
   return (
     <div className="min-h-screen w-full">
-      {/* Top section */}
-      <section className="mx-auto max-w-7xl px-6 pt-12 md:pt-16">
-        <motion.div {...fade(0)}>
-          <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight">
-            Our Features
-          </h1>
-          <span className="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-white/70 px-3 py-1 text-xs font-medium text-amber-800 shadow-sm backdrop-blur mt-8">
-            <span className="inline-block h-1.5 w-1.5 rounded-full bg-amber-500" />
-            EEC Features
-          </span>
-        </motion.div>
-
-        <motion.h1
-          {...fade(0.05)}
-          className="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900"
+      {/* ===== PARALLAX HERO ===== */}
+      <section className="relative h-[54vh] md:h-[66vh]">
+        <div
+          className="absolute inset-0 bg-center bg-cover"
+          style={{
+            backgroundImage: `url(${HERO_IMAGE})`,
+            backgroundAttachment: "fixed", // native parallax
+          }}
         />
-
-        <motion.p
-          {...fade(0.1)}
-          className="mt-3 max-w-3xl text-sm md:text-base leading-relaxed text-slate-700"
-        >
-          A clean, accessible, and delightful experience—using the EEC amber glass theme—so teachers,
-          students, and admins can focus on what matters.
-        </motion.p>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#120f08]/30 via-[#0b0a09]/10 to-transparent" />
+        <div className="relative z-10 mx-auto flex h-full w-full items-center px-6">
+          <motion.div {...fade(0)} className="w-full">
+            {/* <span className="inline-flex items-center gap-2 rounded-full border border-amber-200/70 bg-amber-50/70 px-3 py-1 text-xs font-medium text-amber-800 shadow-sm backdrop-blur">
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-amber-500" />
+              EEC Features
+            </span> */}
+            <h1 className="mt-3 text-3xl md:text-5xl font-extrabold tracking-tight text-white drop-shadow text-right w-full">
+              Features of EEC
+            </h1>
+            {/* <p className="mt-3 max-w-2xl text-sm md:text-base leading-relaxed text-white/90">
+              Crafted with clarity, speed and the EEC amber-glass theme.
+            </p> */}
+          </motion.div>
+        </div>
+        <div className="pointer-events-none absolute -bottom-1 left-0 right-0 h-10 bg-gradient-to-b from-transparent to-white" />
       </section>
 
-      {/* Grid */}
+      {/* ===== FEATURE “CAPSULES” (non-card design) ===== */}
       <section className="mx-auto max-w-7xl px-6 py-10 md:py-14">
         <div className="grid gap-8 sm:grid-cols-2">
           {items.map((f, i) => (
-            <motion.div
+            <motion.article
               key={f.title + i}
-              {...fade(0.05 * (i + 1))}
-              className="group relative rounded-3xl bg-white/85 border border-amber-200/70 p-8 shadow-[0_6px_20px_rgba(17,24,39,0.08)] hover:shadow-[0_10px_28px_rgba(17,24,39,0.12)] transition-shadow backdrop-blur"
+              {...fade(0.06 * (i + 1))}
+              className="
+                relative group isolate overflow-hidden rounded-2xl
+                bg-white/85 backdrop-blur
+                shadow-[0_8px_26px_rgba(17,24,39,0.10)]
+                ring-1 ring-amber-300/50
+                hover:shadow-[0_14px_36px_rgba(17,24,39,0.16)]
+                transition-all will-change-transform
+                hover:-translate-y-0.5
+              "
             >
-              <div className="pointer-events-none absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity [background:radial-gradient(400px_120px_at_20%_0%,rgba(251,191,36,0.15),transparent_60%)]" />
-              <div className="flex flex-col items-center text-center">
-                <div className={`mb-3 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-50 border border-amber-200 shadow-sm ${f.accent}`}>
-                  <div className="opacity-90">{f.icon}</div>
-                </div>
+              {/* Amber ribbon at left (EEC theme) */}
+              <div className="absolute left-0 top-0 h-full w-1.5 bg-gradient-to-b from-amber-400 via-amber-500 to-amber-600" />
+
+              {/* Soft aurora glow on hover */}
+              <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity
+                              [background:radial-gradient(380px_120px_at_20%_0%,rgba(251,191,36,0.18),transparent_60%)]" />
+
+              {/* Floating “coin” icon */}
+              <div
+                className={`
+                  absolute -top-2 -left-2 h-14 w-14 rounded-2xl
+                  bg-amber-500 text-white shadow-xl shadow-amber-500/30
+                  grid place-items-center ring-2 ring-amber-200
+                `}
+              >
+                <div className="w-7 h-7 opacity-95 ml-2">{f.icon}</div>
+              </div>
+
+              {/* Content */}
+              <div className="relative z-10 p-7 pl-10 sm:pl-12">
                 <h3 className="text-xl md:text-2xl font-bold tracking-tight text-slate-900">
                   {f.title}
                 </h3>
-                <p className="mt-3 text-sm md:text-[15px] leading-relaxed text-slate-700 max-w-[48ch]">
+                <p className="mt-3 text-sm md:text-[15px] leading-relaxed text-slate-700">
                   {f.desc}
                 </p>
+
+                {/* Bottom shadow puck => “floating capsule” */}
+                <div className="mt-6 h-6 rounded-2xl bg-gradient-to-b from-transparent to-black/5 blur-[6px] opacity-70" />
               </div>
-              <div className="mt-6 h-6 rounded-2xl bg-gradient-to-b from-transparent to-black/5 blur-[6px] opacity-70" />
-            </motion.div>
+
+              {/* Decorative amber dots (unique look, not a card) */}
+              <div className="absolute right-3 top-3 h-2 w-2 rounded-full bg-amber-400/80" />
+              <div className="absolute right-6 top-7 h-1.5 w-1.5 rounded-full bg-amber-500/80" />
+              <div className="absolute right-9 top-11 h-1.5 w-1.5 rounded-full bg-amber-600/70" />
+            </motion.article>
           ))}
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="mx-auto max-w-7xl px-6 pb-14">
+      {/* ===== CTA ===== */}
+      {/* <section className="mx-auto max-w-7xl px-6 pb-14">
         <motion.div
           {...fade(0.1)}
-          className="rounded-2xl border border-amber-200 bg-white/80 p-6 md:p-8 shadow-md backdrop-blur"
+          className="rounded-2xl border border-amber-300/70 bg-white/85 p-6 md:p-8 shadow-md backdrop-blur"
         >
           <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
             <div>
@@ -177,18 +199,18 @@ export default function FeaturesPage({ items = DEFAULT_FEATURES }) {
                 Want a tailored feature set for your institute?
               </h4>
               <p className="text-slate-700">
-                We’ll map EEC modules to your exact workflows and rollout fast.
+                We’ll map EEC modules to your exact workflows and roll out fast.
               </p>
             </div>
             <a
               href="mailto:eec@electroniceducare.com"
-              className="inline-flex items-center justify-center rounded-xl bg-amber-600 px-5 py-3 text-white font-semibold shadow-lg shadow-amber-500/20 hover:bg-amber-700 transition"
+              className="inline-flex items-center justify-center rounded-xl bg-amber-600 px-5 py-3 text-white font-semibold shadow-lg shadow-amber-500/25 hover:bg-amber-700 transition"
             >
               Get a Demo
             </a>
           </div>
         </motion.div>
-      </section>
+      </section> */}
     </div>
   );
 }

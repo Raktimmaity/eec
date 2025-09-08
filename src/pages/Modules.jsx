@@ -2,7 +2,10 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-/** ---------- Theme Animations (mount-based) ---------- */
+/* ===== Parallax hero image (place /Modules.jpg in /public) ===== */
+const HERO_IMAGE = "/Modules.jpg";
+
+/* ===== Animations ===== */
 const fadeUp = (d = 0) => ({
   initial: { opacity: 0, y: 18 },
   animate: { opacity: 1, y: 0 },
@@ -14,7 +17,7 @@ const pop = {
   exit: { opacity: 0, scale: 0.98, y: 4, transition: { duration: 0.18, ease: "easeIn" } },
 };
 
-/** ---------- Icons (inline SVG to avoid extra deps) ---------- */
+/* ===== Icons (unchanged) ===== */
 const I = {
   fee: (
     <svg viewBox="0 0 24 24" className="w-6 h-6">
@@ -59,7 +62,7 @@ const I = {
   ),
 };
 
-/** ---------- Data ---------- */
+/* ===== Data ===== */
 const MODULES = [
   {
     key: "fee",
@@ -139,11 +142,11 @@ const HIGHLIGHT = {
   title: "Learning Management Software",
   desc:
     "Adaptive, gamified, and AI-integrated LMS with progress tracking, lesson planning, and student analytics.",
-  accent: "text-slate-50",
+  accent: "text-slate-900",
   icon: I.lms,
 };
 
-/** ---------- Modal (accessible) ---------- */
+/* ===== Modal (kept) ===== */
 function useOnKeyDown(handler) {
   useEffect(() => {
     const onKey = (e) => { if (e.key === "Escape") handler(); };
@@ -174,9 +177,7 @@ function Modal({ open, onClose, title, items, icon, accent = "" }) {
           aria-modal="true"
           role="dialog"
         >
-          {/* Overlay */}
           <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px]" onClick={onClose} />
-          {/* Card */}
           <motion.div
             {...pop}
             ref={cardRef}
@@ -216,69 +217,119 @@ function Modal({ open, onClose, title, items, icon, accent = "" }) {
   );
 }
 
-/** ---------- Page ---------- */
+/* ===== Page ===== */
 export default function Modules() {
-  const [active, setActive] = useState(null); // key of selected module
+  const [active, setActive] = useState(null);
   const selected = useMemo(() => MODULES.find((m) => m.key === active), [active]);
 
   return (
     <div className="min-h-screen w-full">
-      {/* Header */}
-      <section className="mx-auto max-w-7xl px-6 pt-12 md:pt-16">
-        <motion.div {...fadeUp(0)}>
-          <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight">Our Modules</h1>
-          <span className="mt-8 inline-flex items-center gap-2 rounded-full border border-amber-200 bg-white/70 px-3 py-1 text-xs font-medium text-amber-800 shadow-sm backdrop-blur">
-            <span className="inline-block h-1.5 w-1.5 rounded-full bg-amber-500" />
-            EEC Modules
-          </span>
-        </motion.div>
-
-        <motion.h1 {...fadeUp(0.05)} className="mt-4 text-3xl md:text-4xl font-extrabold tracking-tight" />
-
-        <motion.p {...fadeUp(0.1)} className="max-w-3xl text-sm md:text-base leading-relaxed text-slate-700">
-          Click any module to see its detailed feature list. Close the popup by clicking outside
-          the card or pressing <span className="font-semibold">Esc</span>.
-        </motion.p>
+      {/* ===== PARALLAX HERO (right-aligned like FeaturesPage) ===== */}
+      <section className="relative h-[54vh] md:h-[66vh]">
+        <div
+          className="absolute inset-0 bg-center bg-cover"
+          style={{
+            backgroundImage: `url(${HERO_IMAGE})`,
+            backgroundAttachment: "fixed",
+          }}
+        />
+        {/* gentle vignette & white fade to keep it light */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#120f08]/20 via-white/10 to-transparent" />
+        <div className="relative z-10 mx-auto flex h-full w-full items-center px-6">
+          <motion.div {...fadeUp(0)} className="w-full">
+            <h1 className="mt-3 text-3xl md:text-5xl font-extrabold tracking-tight text-white drop-shadow text-right w-full">
+              Our Modules
+            </h1>
+          </motion.div>
+        </div>
+        <div className="pointer-events-none absolute -bottom-1 left-0 right-0 h-10 bg-gradient-to-b from-transparent to-white" />
       </section>
 
-      {/* Grid */}
+      {/* ===== “PRO SPEC-SHEETS” (unique, not basic cards) ===== */}
+      {/* ===== MODULES “RIBBONS” (professional, modern, unique) ===== */}
       <section className="mx-auto max-w-7xl px-6 py-10 md:py-14">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {MODULES.map((m, i) => (
             <motion.button
               key={m.key}
-              {...fadeUp(0.04 * (i + 1))}
+              {...fadeUp(0.05 * (i + 1))}
               onClick={() => setActive(m.key)}
-              className="group relative text-left rounded-3xl bg-white/85 border border-amber-200/70 p-6 shadow-[0_6px_20px_rgba(17,24,39,0.08)] hover:shadow-[0_12px_30px_rgba(17,24,39,0.14)] transition-shadow backdrop-blur focus:outline-none focus:ring-2 focus:ring-amber-400"
+              className="
+          group relative isolate overflow-hidden text-left rounded-[28px]
+          bg-white/85 backdrop-blur
+          shadow-[0_8px_26px_rgba(17,24,39,0.10)]
+          ring-1 ring-amber-200/70
+          hover:shadow-[0_14px_36px_rgba(17,24,39,0.16)]
+          transition-all hover:-translate-y-0.5 focus:outline-none
+        "
             >
-              <div className="pointer-events-none absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity [background:radial-gradient(420px_140px_at_18%_0%,rgba(251,191,36,0.16),transparent_60%)]" />
-              <div className="flex items-center gap-3">
-                <div className={`inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-amber-50 border border-amber-200 ${m.accent}`}>
-                  {m.icon}
+              {/* Glow rail */}
+              <div className="pointer-events-none absolute -inset-x-2 -inset-y-1 rounded-[32px] opacity-0 blur-xl transition group-hover:opacity-100"
+                style={{ background: "linear-gradient(90deg, rgba(251,191,36,.25), rgba(99,102,241,.25))" }} />
+
+              {/* Ribbon inner with angled stripe */}
+              <div className="relative rounded-[26px] bg-white/90">
+                <div className="pointer-events-none absolute -left-20 top-0 h-full w-40 -skew-x-12 bg-gradient-to-b from-amber-600/40 to-indigo-200/40" />
+
+                <div className="relative z-10 flex flex-col gap-4 px-6 py-6">
+                  {/* Icon medallion */}
+                  <div className="h-12 w-12 rounded-2xl bg-gradient-to-br from-amber-600 to-yellow-500 text-white shadow-lg shadow-amber-500/30 ring-4 ring-white/70 grid place-items-center">
+                    {m.icon}
+                  </div>
+
+                  {/* Content */}
+                  <div>
+                    <h3 className="text-xl font-extrabold tracking-tight text-slate-900">
+                      {m.title}
+                    </h3>
+                    <ul className="mt-3 space-y-1.5 text-sm text-slate-700">
+                      {m.bullets.slice(0, 3).map((b, idx) => (
+                        <li key={idx} className="flex gap-2">
+                          <span className="mt-2 inline-block h-1.5 w-1.5 rounded-full bg-amber-400" />
+                          <span>{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Footer line + CTA hint */}
+                  <div className="mt-4 flex items-center justify-end w-full">
+                    {/* <span className="inline-flex items-center gap-2 text-xs font-medium text-slate-600">
+                      <span className="inline-block h-2 w-2 rounded-full bg-amber-400" />
+                      Optimized workflow
+                    </span> */}
+                    <span className="inline-flex items-center gap-1 text-xs font-semibold text-amber-700 group-hover:translate-x-0.5 transition-transform">
+                      View details
+                      <svg viewBox="0 0 24 24" className="h-4 w-4">
+                        <path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                      </svg>
+                    </span>
+                  </div>
+
+                  {/* Floating shadow puck */}
+                  {/* <div className="mt-4 h-6 rounded-2xl bg-gradient-to-b from-transparent to-black/5 blur-[6px] opacity-70" /> */}
                 </div>
-                <h3 className="text-[17px] md:text-lg font-bold tracking-tight">{m.title}</h3>
               </div>
-              <div className="mt-4 h-6 rounded-2xl bg-gradient-to-b from-transparent to-black/5 blur-[6px] opacity-70" />
-              <p className="font-bold animate-pulse text-xs text-amber-700">Click here to view all details</p>
             </motion.button>
           ))}
         </div>
 
-        {/* Highlight bar */}
-        <motion.div {...fadeUp(0.08)} className="mt-6 rounded-2xl border border-slate-800/20 bg-slate-900 text-slate-100 p-6 md:p-7 shadow-lg">
+        {/* Highlight bar, kept light */}
+        {/* <motion.div {...fadeUp(0.08)} className="mt-10 rounded-2xl border border-amber-200 bg-white/85 p-6 md:p-7 shadow-md backdrop-blur">
           <div className="flex items-start gap-3">
-            <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-800/60 border border-slate-700">
+            <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-amber-50 border border-amber-200">
               {HIGHLIGHT.icon}
             </div>
             <div>
-              <h4 className="text-lg md:text-xl font-extrabold">{HIGHLIGHT.title}</h4>
-              <p className="text-[15px] md:text-base opacity-90">{HIGHLIGHT.desc}</p>
+              <h4 className="text-lg md:text-xl font-extrabold text-slate-900">{HIGHLIGHT.title}</h4>
+              <p className="text-[15px] md:text-base text-slate-700">{HIGHLIGHT.desc}</p>
             </div>
           </div>
-        </motion.div>
+        </motion.div> */}
       </section>
 
-      {/* Modal */}
+
+      {/* ===== Modal ===== */}
       <Modal
         open={!!active}
         onClose={() => setActive(null)}

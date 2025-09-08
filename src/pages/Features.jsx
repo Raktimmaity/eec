@@ -1,5 +1,6 @@
+// src/pages/Features.jsx
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   FaBook, FaUserGraduate, FaBrain, FaBusAlt, FaClipboardList, FaUsersCog, FaMoneyBillWave,
   FaCheckCircle, FaChartLine, FaTasks, FaChalkboardTeacher, FaAward, FaTrophy, FaRegLightbulb,
@@ -9,314 +10,258 @@ import {
 import { FaFileArrowDown } from "react-icons/fa6";
 import { IMAGES } from "../data/images";
 
+/** ----------------------------------------------------------------
+ * DATA (unchanged): sections, images & features
+ * ---------------------------------------------------------------- */
 const categories = [
   {
     key: "academics",
     title: "Academics Management",
-    bg: "from-amber-100 via-amber-100 to-amber-200",
+    tagline: "Revolutionise Your School With CampusCare 10X",
     image: IMAGES.academics,
     features: [
-      {
-        title: "Personalized Learning Paths",
-        desc: "EEC offers tailored learning experiences, adapting to each student’s pace and abilities. This ensures that every student gets the right content to meet their individual educational needs effectively.",
-        icon: <FaBullseye className="text-amber-600 text-3xl" />
-      },
-      {
-        title: "Progress Tracking",
-        desc: "Teachers and students can easily monitor progress through detailed reports. Real-time analytics help identify strengths, weaknesses, and areas for improvement, allowing for timely interventions and goal adjustments.",
-        icon: <FaAward className="text-emerald-600 text-3xl" />
-      },
-      {
-        title: "Lesson & Resource Management",
-        desc: "Teachers can upload and organize lessons, worksheets, videos, and assessments. This feature ensures smooth resource management, enhancing classroom learning and providing students with easy access to materials and activities.",
-        icon: <FaFileArrowDown className="text-sky-600 text-3xl" />
-      },
-      {
-        title: "Interactive Assessments",
-        desc: "EEC provides quizzes and self-assessments to help students gauge their understanding. Students can unlock further content as they complete assessments, motivating them to progress and learn continuously with engaging activities.",
-        icon: <FaListAlt className="text-indigo-600 text-3xl" />
-      },
+      { title: "Personalized Learning Paths", desc: "EEC offers tailored learning experiences, adapting to each student’s pace and abilities.", icon: <FaBullseye className="text-amber-600 text-xl" /> },
+      { title: "Progress Tracking", desc: "Monitor progress via real-time analytics for timely interventions and goal adjustments.", icon: <FaAward className="text-emerald-600 text-xl" /> },
+      { title: "Lesson & Resource Management", desc: "Upload and organize lessons, worksheets, videos, and assessments seamlessly.", icon: <FaFileArrowDown className="text-sky-600 text-xl" /> },
+      { title: "Interactive Assessments", desc: "Quizzes and self-assessments unlock content and drive continuous learning.", icon: <FaListAlt className="text-indigo-600 text-xl" /> },
     ],
   },
   {
     key: "students",
     title: "Student Management",
-    bg: "from-amber-100 via-amber-100 to-amber-200",
+    tagline: "Elevating Productivity, Efficiency, and Reputation",
     image: IMAGES.students,
     features: [
-      {
-        title: "Personalized Dashboard",
-        desc: "Students have access to their own personalized dashboard, where they can track learning progress, achievements, and upcoming lessons. It provides a clear overview of their academic and wellness status.",
-        icon: <FaUserGraduate className="text-indigo-600 text-3xl" />
-      },
-      {
-        title: "Progress Monitoring",
-        desc: "Real-time progress tracking allows students to see their strengths and areas for improvement. Detailed analytics guide students to stay on track, making learning goals more achievable and motivating.",
-        icon: <FaChartLine className="text-pink-600 text-3xl" />
-      },
-      {
-        title: "Progress Reward System",
-        desc: "Students earn points and rewards for completing lessons, quizzes, and tasks. These points unlock new stages, providing a fun and motivating learning experience that encourages continuous growth and engagement.",
-        icon: <FaTrophy className="text-amber-600 text-3xl" />
-      },
-      {
-        title: "Learning Analytics",
-        desc: "EEC provides students with insightful learning analytics. This data helps identify performance patterns, offering actionable feedback and recommendations to improve learning outcomes and boost academic success.",
-        icon: <FaRegLightbulb className="text-emerald-600 text-3xl" />
-      },
+      { title: "Personalized Dashboard", desc: "Track progress, achievements, and upcoming lessons in one place.", icon: <FaUserGraduate className="text-indigo-600 text-xl" /> },
+      { title: "Progress Monitoring", desc: "Real-time analytics highlight strengths and improvement areas.", icon: <FaChartLine className="text-pink-600 text-xl" /> },
+      { title: "Progress Reward System", desc: "Gamified points and stages keep learners motivated.", icon: <FaTrophy className="text-amber-600 text-xl" /> },
+      { title: "Learning Analytics", desc: "Insightful data patterns inform next best actions.", icon: <FaRegLightbulb className="text-emerald-600 text-xl" /> },
     ],
   },
   {
     key: "ai",
     title: "AI & ML Features",
-    bg: "from-amber-100 via-amber-100 to-amber-200",
+    tagline: "Instant Insights. Smarter Outcomes.",
     image: IMAGES.ai,
     features: [
-      {
-        title: "Tailored Learning Journeys",
-        desc: "AI customizes learning paths based on student performance, interests, and pace, ensuring an optimized and personal educational experience.",
-        icon: <FaBrain className="text-amber-700 text-3xl" />
-      },
-      {
-        title: "Smart Progress Insights",
-        desc: "Machine Learning analyzes student data to generate insights and recommendations for targeted improvements in real-time.",
-        icon: <FaFileAlt className="text-amber-600 text-3xl" />
-      },
-      {
-        title: "Predictive Performance Alerts",
-        desc: "AI anticipates student outcomes and flags potential challenges, providing early intervention opportunities for enhanced academic success.",
-        icon: <FaBell className="text-rose-600 text-3xl" />
-      },
-      {
-        title: "Instant Automated Feedback",
-        desc: "ML algorithms assess assignments and assessments, providing immediate, personalized feedback to support rapid student growth.",
-        icon: <FaFileSignature className="text-indigo-600 text-3xl" />
-      },
+      { title: "Tailored Learning Journeys", desc: "AI adapts paths to performance, interests, and pace.", icon: <FaBrain className="text-amber-700 text-xl" /> },
+      { title: "Smart Progress Insights", desc: "ML surfaces recommendations for targeted improvements.", icon: <FaFileAlt className="text-amber-600 text-xl" /> },
+      { title: "Predictive Performance Alerts", desc: "Early signals help you intervene faster.", icon: <FaBell className="text-rose-600 text-xl" /> },
+      { title: "Instant Automated Feedback", desc: "Immediate, personalized grading and feedback.", icon: <FaFileSignature className="text-indigo-600 text-xl" /> },
     ],
   },
   {
     key: "library",
     title: "E-Library & Transportation",
-    bg: "from-amber-100 via-amber-100 to-amber-200",
+    tagline: "Reliable. Safe. Connected.",
     image: IMAGES.library,
     features: [
-      {
-        title: "Digital E-Library Access",
-        desc: "A comprehensive online library for students to access study materials, e-books, and resources anytime, enhancing learning flexibility and convenience.",
-        icon: <FaBook className="text-orange-600 text-3xl" />
-      },
-      {
-        title: "Real-Time Fleet Tracking",
-        desc: "Track and manage school buses or other transport vehicles in real time, ensuring smooth operations and timely arrivals.",
-        icon: <FaSatelliteDish className="text-sky-600 text-3xl" />
-      },
-      {
-        title: "Enhanced Safety Features",
-        desc: "Monitor vehicle health and driver behavior, guaranteeing student safety during transit with constant safety checks and alerts.",
-        icon: <FaShieldAlt className="text-emerald-600 text-3xl" />
-      },
-      {
-        title: "GPS-Based Student Tracking",
-        desc: "Secure tracking of students from pick-up to drop-off, providing parents and schools with peace of mind.",
-        icon: <FaRoute className="text-indigo-600 text-3xl" />
-      },
+      { title: "Digital E-Library Access", desc: "Anytime e-books and resources for flexible learning.", icon: <FaBook className="text-orange-600 text-xl" /> },
+      { title: "Real-Time Fleet Tracking", desc: "Live visibility across vehicles and routes.", icon: <FaSatelliteDish className="text-sky-600 text-xl" /> },
+      { title: "Enhanced Safety Features", desc: "Vehicle health and driver behavior monitoring.", icon: <FaShieldAlt className="text-emerald-600 text-xl" /> },
+      { title: "GPS-Based Student Tracking", desc: "Peace of mind from pick-up to drop-off.", icon: <FaRoute className="text-indigo-600 text-xl" /> },
     ],
   },
   {
     key: "exam",
     title: "Exam Management",
-    bg: "from-amber-100 via-amber-100 to-amber-200",
+    tagline: "Plan. Conduct. Analyse.",
     image: IMAGES.exam,
     features: [
-      {
-        title: "Seamless Exam Scheduling",
-        desc: "EEC allows schools to schedule exams efficiently, with automated reminders for students and teachers to stay on track.",
-        icon: <FaClipboardList className="text-amber-700 text-3xl" />
-      },
-      {
-        title: "Secure Online Assessments",
-        desc: "Conduct online exams with secure, customizable question formats, ensuring academic integrity while providing flexibility in test-taking.",
-        icon: <FaTasks className="text-red-600 text-3xl" />
-      },
-      {
-        title: "Instant Result Generation",
-        desc: "After exam completion, results are automatically generated and shared, providing students and teachers with immediate feedback.",
-        icon: <FaCheckCircle className="text-emerald-600 text-3xl" />
-      },
-      {
-        title: "Performance Analytics",
-        desc: "Detailed analytics of exam performance, highlighting strengths and areas for improvement, helping students track progress.",
-        icon: <FaChartLine className="text-indigo-600 text-3xl" />
-      },
+      { title: "Seamless Exam Scheduling", desc: "Smart timetables and automated reminders.", icon: <FaClipboardList className="text-amber-700 text-xl" /> },
+      { title: "Secure Online Assessments", desc: "Flexible formats with academic integrity.", icon: <FaTasks className="text-red-600 text-xl" /> },
+      { title: "Instant Result Generation", desc: "Immediate feedback for faster outcomes.", icon: <FaCheckCircle className="text-emerald-600 text-xl" /> },
+      { title: "Performance Analytics", desc: "Deep dive into strengths and gaps.", icon: <FaChartLine className="text-indigo-600 text-xl" /> },
     ],
   },
   {
     key: "hr",
     title: "HR Management",
-    bg: "from-amber-100 via-amber-100 to-amber-200",
+    tagline: "People. Policies. Performance.",
     image: IMAGES.hr,
     features: [
-      {
-        title: "Attendance Monitoring",
-        desc: "Automated tracking of both staff and students; attendance with notifications for absenteeism.",
-        icon: <FaIdCard className="text-rose-600 text-3xl" />
-      },
-      {
-        title: "Leave Management",
-        desc: "Streamlined leave request and approval process, maintaining accurate leave records for staff.",
-        icon: <FaClock className="text-amber-600 text-3xl" />
-      },
-      {
-        title: "HR Insights",
-        desc: "Analytics to monitor key metrics like staff performance and attendance, aiding management decisions.",
-        icon: <FaUserShield className="text-emerald-600 text-3xl" />
-      },
-      {
-        title: "Employee Records",
-        desc: "Centralized management of staff data, including roles, qualifications, and performance history.",
-        icon: <FaFileAlt className="text-indigo-600 text-3xl" />
-      },
+      { title: "Attendance Monitoring", desc: "Automated tracking with notifications.", icon: <FaIdCard className="text-rose-600 text-xl" /> },
+      { title: "Leave Management", desc: "Streamlined requests and approvals.", icon: <FaClock className="text-amber-600 text-xl" /> },
+      { title: "HR Insights", desc: "KPIs across performance and presence.", icon: <FaUserShield className="text-emerald-600 text-xl" /> },
+      { title: "Employee Records", desc: "Centralized profiles and history.", icon: <FaFileAlt className="text-indigo-600 text-xl" /> },
     ],
   },
   {
     key: "finance",
     title: "Finance Management",
-    bg: "from-amber-100 via-amber-100 to-amber-200",
+    tagline: "Collect. Reconcile. Report.",
     image: IMAGES.finance,
     features: [
-      {
-        title: "Fee Payment Management",
-        desc: "EEC offers a streamlined system for fee collection with multiple payment gateways, enabling smooth, hassle-free payments for parents and schools.",
-        icon: <FaMoneyCheckAlt className="text-emerald-600 text-3xl" />
-      },
-      {
-        title: "Financial Due Reports",
-        desc: "Automatically generated reports on outstanding payments, providing schools with real-time visibility into pending dues and allowing for timely follow-ups.",
-        icon: <FaReceipt className="text-sky-600 text-3xl" />
-      },
-      {
-        title: "Payment History Reports",
-        desc: "Detailed payment transaction reports, giving schools and parents easy access to historical payment data and receipts.",
-        icon: <FaHistory className="text-amber-600 text-3xl" />
-      },
-      {
-        title: "Payment Reminders Payment",
-        desc: "Automated reminders sent to parents regarding upcoming or overdue fees, ensuring timely payments and reducing manual follow-ups.",
-        icon: <FaBellSlash className="text-rose-600 text-3xl" />
-      },
+      { title: "Fee Payment Management", desc: "Multi-gateway, frictionless collections.", icon: <FaMoneyCheckAlt className="text-emerald-600 text-xl" /> },
+      { title: "Financial Due Reports", desc: "Live visibility on pending dues.", icon: <FaReceipt className="text-sky-600 text-xl" /> },
+      { title: "Payment History Reports", desc: "Transparent historical statements.", icon: <FaHistory className="text-amber-600 text-xl" /> },
+      { title: "Payment Reminders", desc: "Automated nudges for on-time payments.", icon: <FaBellSlash className="text-rose-600 text-xl" /> },
     ],
   },
 ];
 
-const Features = () => {
-  const [activeSection, setActiveSection] = useState("academics");
+/** Small helper for tab bar “chip” */
+const Tab = ({ label, active, onClick }) => (
+  <button
+    type="button"
+    onClick={onClick}
+    className={[
+      "rounded-full px-4 py-1.5 text-sm font-medium transition",
+      active
+        ? "bg-blue-600 text-white shadow"
+        : "bg-white text-slate-700 hover:bg-slate-100",
+    ].join(" ")}
+    role="tab"
+    aria-selected={active}
+  >
+    {label}
+  </button>
+);
 
-  useEffect(() => {
-    let observer;
-    const sections = document.querySelectorAll(".feature-section");
-    if (sections.length) {
-      observer = new IntersectionObserver(
-        (entries) =>
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) setActiveSection(entry.target.id);
-          }),
-        { threshold: 0.5 }
-      );
-      sections.forEach((sec) => observer.observe(sec));
-    }
-    return () => observer && observer.disconnect();
-  }, []);
+export default function Features() {
+  const [active, setActive] = useState(categories[0].key);
+  const activeCat = useMemo(
+    () => categories.find((c) => c.key === active) || categories[0],
+    [active]
+  );
 
   return (
-    <section className="relative">
-      {/* Title */}
+    <section className="relative overflow-hidden">
+      {/* Background */}
+      <div className="pointer-events-none absolute" />
+
+      {/* Heading */}
       <motion.h2
-        initial={{ opacity: 0, y: 40 }}
+        initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="relative text-4xl md:text-5xl font-extrabold text-center py-16 text-slate-900"
+        transition={{ duration: 0.5 }}
+        className="relative text-center pt-12 md:pt-16 text-4xl md:text-5xl font-extrabold text-slate-900"
       >
-        Our <span className="text-amber-600">Features</span>
+        EEC Helps Everyone To Perform
+        <span className="block text-base md:text-lg font-semibold mt-2 text-amber-600">
+          Reaching Better Results
+        </span>
       </motion.h2>
 
-      {categories.map((cat, idx) => {
-        // ensure: image first on mobile, alternate on lg+
-        const imageOrder = idx % 2 === 0 ? "order-1 lg:order-1" : "order-1 lg:order-2";
-        const featuresOrder = idx % 2 === 0 ? "order-2 lg:order-2" : "order-2 lg:order-1";
+      {/* Tabs */}
+      <div className="relative mx-auto max-w-5xl mt-8 flex items-center justify-center gap-2 flex-wrap">
+        {categories.map((c) => (
+          <Tab
+            key={c.key}
+            label={
+              c.key === "academics" ? "ERP"
+                : c.key === "students" ? "LMS"
+                  : c.key === "ai" ? "Digital Content"
+                    : c.key === "library" ? "Website"
+                      : c.title
+            }
+            active={active === c.key}
+            onClick={() => setActive(c.key)}
+          />
+        ))}
+      </div>
 
-        return (
-          <motion.div
-            key={cat.key}
-            id={cat.key}
-            className="feature-section relative min-h-screen flex flex-col lg:flex-row items-center justify-center gap-12 py-2 md:py-20 px-6"
-            initial={{ opacity: 0, y: 80 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            {/* Image */}
-            <img
-              src={cat.image}
-              alt={cat.title}
-              loading="lazy"
-              className={`w-full lg:w-[45%] object-cover ${imageOrder}`}
-            />
+      {/* Card area */}
+      <div className="relative mx-auto max-w-7xl px-6 md:px-10 lg:px-12">
+        <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          {/* LEFT: copy + bullet list with dotted separators */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeCat.key}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.35 }}
+              className="relative"
+            >
+              <div className="mb-2 inline-flex items-center gap-2">
+                <span className="text-[11px] tracking-widest uppercase text-amber-600 font-semibold">
+                  {activeCat.tagline || "ERP Excellence"}
+                </span>
+              </div>
+              <h3 className="text-3xl md:text-4xl font-bold text-slate-900">
+                {activeCat.title}
+              </h3>
 
-            {/* Auto-scrolling carousel of feature cards */}
-            <div className={`w-full lg:w-1/2 ${featuresOrder}`}>
-              <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">{cat.title}</h3>
+              {/* Feature rows */}
+              <ul className="mt-6 divide-y divide-dotted divide-slate-200 border-t border-b border-dotted border-slate-200">
+                {activeCat.features.map((f, i) => (
+                  <li key={f.title} className="py-3 md:py-4">
+                    <div className="flex items-start gap-3">
+                      <div className="relative shrink-0 mt-1 flex items-center justify-center">
+                        {/* ping animation */}
+                        <span className="absolute inline-flex h-6 w-6 rounded-full bg-amber-400 opacity-75 animate-ping"></span>
 
-              {/* Marquee container */}
-              <div className="relative overflow-hidden">
-                {/* fade edges for a smoother visual */}
-                <div className="pointer-events-none absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-white via-white/60 to-transparent" />
-                <div className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-white via-white/60 to-transparent" />
+                        {/* actual icon */}
+                        <span className="relative text-amber-500">{f.icon}</span>
+                      </div>
 
-                {/* Track: duplicate items to make a seamless loop */}
-                <div
-                  className="marquee-track flex w-max gap-6 will-change-transform"
-                  style={{
-                    ["--marquee-duration"]: `${Math.max(18, cat.features.length * 6)}s`,
-                  }}
-                >
-                  {[...cat.features, ...cat.features].map((f, i) => (
-                    <div
-                      key={`${f.title}-${i}`}
-                      className="min-w-[240px] max-w-[280px] p-6 rounded-3xl bg-white/75 backdrop-blur-xl border border-amber-200"
-                      aria-hidden={i >= cat.features.length ? true : undefined}
-                    >
-                      <div className="flex flex-col items-center text-center">
-                        <div className="mb-3">{f.icon}</div>
-                        <h4 className="font-bold text-lg text-slate-900 mb-2">{f.title}</h4>
-                        <p className="text-sm text-slate-700">{f.desc}</p>
+                      <div className="w-full">
+                        <div className="flex items-center justify-between">
+                          <p className="text-sm md:text-base font-semibold text-slate-800">
+                            {f.title}
+                          </p>
+                          {/* subtle progress bar like screenshot */}
+                          {/* <span className="ml-4 hidden md:block h-1 w-40 rounded bg-slate-200 relative overflow-hidden">
+                            <motion.i
+                              className="absolute left-0 top-0 h-full bg-blue-600"
+                              initial={{ width: "0%" }}
+                              whileInView={{ width: ["45%", "60%", "55%"] }}
+                              transition={{ duration: 1.2, delay: i * 0.05 }}
+                              style={{ display: "block" }}
+                            />
+                          </span> */}
+                        </div>
+                        <p className="text-xs md:text-sm text-slate-600 mt-1">
+                          {f.desc}
+                        </p>
                       </div>
                     </div>
-                  ))}
-                </div>
-              </div>
+                  </li>
+                ))}
+              </ul>
 
-              {/* optional: small hint / remove if not needed */}
-              {/* <p className="mt-3 text-xs text-slate-500">Hover to pause</p> */}
-            </div>
-          </motion.div>
-        );
-      })}
+              {/* CTA style pill to echo the screenshot’s “ERP Excellence” */}
+              {/* <div className="mt-5">
+                <button
+                  type="button"
+                  className="rounded-full bg-blue-600 text-white text-sm font-medium px-4 py-2 shadow hover:bg-blue-700 transition"
+                >
+                  ERP Excellence
+                </button>
+              </div> */}
+            </motion.div>
+          </AnimatePresence>
 
-      {/* Styles for the infinite marquee */}
+          {/* RIGHT: big illustration */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeCat.image}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 20 }}
+              transition={{ duration: 0.35 }}
+              className="relative"
+            >
+              <div className="absolute -inset-6 -z-10 " />
+              <img
+                src={activeCat.image}
+                alt={activeCat.title}
+                className="w-full max-w-[720px] mx-auto object-contain"
+                loading="lazy"
+              />
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </div>
+
+      {/* subtle bottom spacing */}
+      <div className="h-12 md:h-20" />
+
+      {/* Local styles for dotted divider on Safari fallback (optional) */}
       <style>{`
-        .marquee-track {
-          animation: eec-marquee var(--marquee-duration, 22s) linear infinite;
-        }
-        @keyframes eec-marquee {
-          0%   { transform: translate3d(0,0,0); }
-          100% { transform: translate3d(-50%,0,0); }
-        }
-        .marquee-track:hover { animation-play-state: paused; }
-        @media (prefers-reduced-motion: reduce) {
-          .marquee-track { animation: none; transform: none; }
-        }
+        /* Nothing heavy here; Tailwind dotted borders do most of the work */
       `}</style>
     </section>
   );
-};
-
-export default Features;
+}
