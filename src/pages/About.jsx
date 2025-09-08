@@ -22,7 +22,7 @@ export default function About() {
             backgroundAttachment: "fixed",
           }}
         />
-        <div className="absolute inset-0 bg-slate-900/30" />
+        <div className="absolute inset-0 bg-slate-900/5" />
 
         <div className="relative z-10 mx-auto flex h-full max-w-7xl items-center justify-end px-6">
           <motion.div {...fade(0)}>
