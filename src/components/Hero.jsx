@@ -50,7 +50,7 @@ export default function Hero() {
               variants={up}
               className="inline-block rounded-full border border-amber-300 bg-amber-100 px-3 py-1 text-xs font-medium tracking-wide text-amber-800"
             >
-              Trusted by teams across India
+              Trusted by schools
             </motion.span>
 
             <motion.h1 variants={up} className="mt-4 text-4xl font-extrabold leading-tight text-slate-900 md:text-5xl">
