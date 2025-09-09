@@ -39,8 +39,8 @@ export default function About() {
         <motion.section {...fade(0.1)} className="space-y-10">
 
           {/* Our Story */}
-          <div className="rounded-2xl border border-amber-200/70 bg-white/90 p-6 shadow-sm backdrop-blur">
-            <h2 className="text-2xl font-bold">Our Story</h2>
+          <div className="">
+            {/* <h2 className="text-2xl font-bold">Our Story</h2> */}
             <p className="mt-3 text-slate-700 leading-relaxed">
               <span className="font-extrabold text-amber-500">Electronic Educare (EEC)</span>
               was founded with a simple but ambitious goal: to revolutionize how schools
