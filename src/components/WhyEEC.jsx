@@ -5,10 +5,10 @@ import eecLogo from "/service.jpg"; // keep in /public for best results
 
 export default function WhyEEC() {
   const features = [
-    { title: "AI-Powered Learning Insights", desc: "EEC utilizes artificial intelligence to analyze student progress and learning patterns, offering personalized recommendations that enhance each student’s learning journey.", icon: <FaBrain className="text-3xl" /> },
-    { title: "Adaptive Learning Paths", desc: "With machine learning, EEC tailors content to each student’s needs so they learn at the right pace.", icon: <FaLaptopCode className="text-3xl" /> },
-    { title: "Advanced LMS Features", desc: "Interactive lessons, gamified content, and real-time assessments keep students engaged.", icon: <FaChartLine className="text-3xl" /> },
-    { title: "Data-Driven Monitoring", desc: "Real-time performance tracking highlights gaps and helps craft interventions.", icon: <FaChartBar className="text-3xl" /> },
+    { title: "LMS (Learning Management System)", desc: "Personalized study journeys for every class (1-12) with smart, adaptive content.", icon: <FaBrain className="text-3xl" /> },
+    { title: "AI & ML Intelligence", desc: "Tracks student progress, recommends what to study next, and highlights weak areas instantly.", icon: <FaLaptopCode className="text-3xl" /> },
+    { title: "ERP System", desc: "End-to-end school operations - from fees and HR to health records.", icon: <FaChartLine className="text-3xl" /> },
+    { title: "Well-being & Emotional Care", desc: "With mood tracking, stress alerts, and well-being dashboards, ensure every child feels supported, balanced, and emotionally strong.", icon: <FaChartBar className="text-3xl" /> },
   ];
 
   const stats = [

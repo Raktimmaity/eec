@@ -60,10 +60,23 @@ const I = {
       <rect x="3" y="5" width="18" height="16" rx="3" fill="none" stroke="currentColor" strokeWidth="1.2" />
     </svg>
   ),
+  web: (
+    <svg viewBox="0 0 24 24" className="w-6 h-6">
+      <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" strokeWidth="1.4" />
+      <path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18" fill="none" stroke="currentColor" strokeWidth="1.4" />
+    </svg>
+  ),
+  content: (
+    <svg viewBox="0 0 24 24" className="w-6 h-6">
+      <rect x="4" y="4" width="16" height="16" rx="3" fill="none" stroke="currentColor" strokeWidth="1.4" />
+      <path d="M8 9h8M8 13h6M8 17h4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+    </svg>
+  ),
 };
 
-/* ===== Data ===== */
+/* ===== Data (cards stay the same design) ===== */
 const MODULES = [
+  /* Finance Management */
   {
     key: "fee",
     title: "Fee Collection",
@@ -76,18 +89,65 @@ const MODULES = [
       "Export to finance & audit logs.",
     ],
   },
+  /* Transport (part of ERP) */
   {
-    key: "transport",
-    title: "Transport & GPS",
+    key: "school_administration",
+    title: "School Administration",
     accent: "text-green-600",
     icon: I.bus,
     bullets: [
-      "Live bus tracking with route geofences.",
-      "Stop management & driver roster.",
-      "Parent pickup alerts and notifications.",
-      "Compliance & maintenance logs.",
+      "Paperless Smart Administration",
+      "Centralized Analytics",
+      "Fees Management",
+      "Examination Management",
     ],
   },
+  {
+    key: "student",
+    title: "Students",
+    accent: "text-blue-600",
+    icon: I.parent,
+    bullets: [
+      "Academic progress Tracking",
+      "Assignment view",
+      "Attendence Tracking",
+      "Course Progress view",
+      "Health & Well-being Updates",
+      "AI-powered Personalized Learning",
+    ],
+  },
+  {
+    key: "teacher",
+    title: "Teachers",
+    accent: "text-blue-600",
+    icon: I.parent,
+    bullets: [
+      "Student Progress Tracking",
+      "Student Health Insights",
+      "Academic Performance Analytics",
+      "Automated Lesson Plan",
+      // "Health & Well-being Updates",
+      // "AI-powered Personalized Learning",
+    ],
+  },
+  {
+    key: "parent",
+    title: "Parents",
+    accent: "text-blue-600",
+    icon: I.parent,
+    bullets: [
+      "Student Progress Dashboard",
+      "Health Observation Tools",
+      "Attendence Tracking",
+      "Communication Bridge",
+      "Fees Payment (All in one)",
+      "Complaint & Feedback System",
+      "Results View",
+      "Course Progress View",
+      "Achievements View",
+    ],
+  },
+  /* HR Management */
   {
     key: "hr",
     title: "HR Management",
@@ -100,18 +160,25 @@ const MODULES = [
       "Performance reviews & documents.",
     ],
   },
+  /* LMS portals & apps */
   {
     key: "mobile",
-    title: "Mobile & Web App",
+    title: "Advanced Learning Experience",
     accent: "text-pink-600",
     icon: I.mobile,
     bullets: [
-      "Student/parent/teacher portals.",
-      "Push notifications & messaging.",
-      "Assignments, lesson plans, calendars.",
-      "Multi-language & accessibility options.",
+      "Interactive e-books",
+      "Adaptive tests & smart quizzes",
+      "Auto-grading & instant results",
+      "Gamification & rewards",
+      "Early performance alerts",
+      "Doubt-solving forums",
+      "Multi-format assignments",
+      "Feedback tools",
+      "Curriculum mapping",
     ],
   },
+  /* Exam Management */
   {
     key: "exam",
     title: "Exam Management",
@@ -124,26 +191,81 @@ const MODULES = [
       "Report cards & transcripts.",
     ],
   },
+  /* Parent Communication (in ERP) */
+  // {
+  //   key: "parent",
+  //   title: "Parent Communication",
+  //   accent: "text-amber-700",
+  //   icon: I.parent,
+  //   bullets: [
+  //     "Announcements & two-way chat.",
+  //     "Attendance/fee alerts & reminders.",
+  //     "PTM scheduling & feedback loops.",
+  //     "Media gallery & document vault.",
+  //   ],
+  // },
+  /* LMS (new: keeps same card design) */
   {
-    key: "parent",
-    title: "Parent Communication",
-    accent: "text-amber-700",
-    icon: I.parent,
+    key: "everyday",
+    title: "Everyday Essentials",
+    accent: "text-slate-900",
+    icon: I.lms,
     bullets: [
-      "Announcements & two-way chat.",
-      "Attendance/fee alerts & reminders.",
-      "PTM scheduling & feedback loops.",
-      "Media gallery & document vault.",
+      "Digital assignments & homework hub",
+      "Notes & study materials",
+      "Subject-wise progress tracking",
+      "Class timetables & reminders",
+      "Centralized Content Repository",
+      "Teacher uploads",
+    ],
+  },
+  /* Digital Content (new) */
+  {
+    key: "digital",
+    title: "Digital Content",
+    accent: "text-emerald-700",
+    icon: I.content,
+    bullets: [
+      "Curriculum-mapped videos & HD assets.",
+      "Interactive content & gamified modules.",
+      "Question banks & worksheets.",
+      "Licensing, playlists & offline access.",
+    ],
+  },
+  /* Website / CMS (new) */
+  {
+    key: "website",
+    title: "Website & CMS",
+    accent: "text-blue-700",
+    icon: I.web,
+    bullets: [
+      "Admissions forms & lead capture.",
+      "SEO-ready pages & blog CMS.",
+      "Events, galleries & notice board.",
+      "Role-based publishing workflow.",
     ],
   },
 ];
 
-const HIGHLIGHT = {
-  title: "Learning Management Software",
-  desc:
-    "Adaptive, gamified, and AI-integrated LMS with progress tracking, lesson planning, and student analytics.",
-  accent: "text-slate-900",
-  icon: I.lms,
+/* ===== Tabs mapping (which cards show under each inner tab) ===== */
+const INNER_TABS = {
+  main: ["ERP", "LMS", "Emmotional Well-being"],
+  extra: ["GPS Bus Tracking", "Canteen Management", "CCTV-based Attendence", "Bookstore Management", "Hostel Management"],
+};
+
+const TAB_TO_KEYS = {
+  // MAIN
+  ERP: ["school_administration", "student", "teacher", "parent"], // core operational modules (you can add more keys here)
+  LMS: ["everyday", "mobile"],       // LMS + portals/apps
+  "Digital Content": ["digital"],
+  Website: ["website"],
+
+  // EXTRA
+  // "GPS Bus Tracking": ["exam"],
+  "Canteen Management": ["hr"],
+  "CCTV-based Attendence": ["fee"],
+  "Bookstore Management": ["fee"],
+  "Hostel Management": ["fee"],
 };
 
 /* ===== Modal (kept) ===== */
@@ -220,11 +342,23 @@ function Modal({ open, onClose, title, items, icon, accent = "" }) {
 /* ===== Page ===== */
 export default function Modules() {
   const [active, setActive] = useState(null);
+
+  // top-level tab
+  const [group, setGroup] = useState("main"); // "main" | "extra"
+  // inner tab per group
+  const [innerTab, setInnerTab] = useState(INNER_TABS["main"][0]); // default to first inner tab
+
   const selected = useMemo(() => MODULES.find((m) => m.key === active), [active]);
+
+  const visibleKeys = TAB_TO_KEYS[innerTab] || [];
+  const visibleModules = useMemo(
+    () => MODULES.filter((m) => visibleKeys.includes(m.key)),
+    [visibleKeys]
+  );
 
   return (
     <div className="min-h-screen w-full">
-      {/* ===== PARALLAX HERO (right-aligned like FeaturesPage) ===== */}
+      {/* ===== PARALLAX HERO ===== */}
       <section className="relative h-[54vh] md:h-[66vh]">
         <div
           className="absolute inset-0 bg-center bg-cover"
@@ -245,27 +379,68 @@ export default function Modules() {
         <div className="pointer-events-none absolute -bottom-1 left-0 right-0 h-10 bg-gradient-to-b from-transparent to-white" />
       </section>
 
-      {/* ===== “PRO SPEC-SHEETS” (unique, not basic cards) ===== */}
-      {/* ===== MODULES “RIBBONS” (professional, modern, unique) ===== */}
-      <section className="mx-auto max-w-7xl px-6 py-10 md:py-14">
+      {/* ===== TAB NAVIGATION ===== */}
+      <section className="mx-auto max-w-7xl px-6 pt-8 md:pt-10">
+        {/* Main / Extra */}
+        <div className="flex items-center justify-center gap-2">
+          {["main", "extra"].map((g) => {
+            const isActive = g === group;
+            return (
+              <button
+                key={g}
+                onClick={() => {
+                  setGroup(g);
+                  setInnerTab(INNER_TABS[g][0]); // reset inner tab when switching group
+                }}
+                className={`rounded-full px-4 py-2 text-sm font-semibold border transition
+                  ${isActive ? "bg-amber-400 text-slate-900 border-amber-300" : "bg-white/80 text-slate-700 border-amber-200 hover:bg-amber-50"}`}
+              >
+                {g === "main" ? "Main" : "Add-On Features"}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Inner Tabs */}
+        <div className="mt-4 flex flex-wrap items-center justify-center gap-2">
+          {INNER_TABS[group].map((tab) => {
+            const activeInner = tab === innerTab;
+            return (
+              <button
+                key={tab}
+                onClick={() => setInnerTab(tab)}
+                className={`rounded-xl px-3.5 py-2 text-sm font-medium border transition
+                  ${activeInner ? "bg-amber-400 text-slate-900 border-amber-300 shadow-sm" : "bg-white/70 text-slate-700 border-amber-200 hover:bg-white"}`}
+              >
+                {tab}
+              </button>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* ===== CARDS (UNCHANGED DESIGN) ===== */}
+      <section className="mx-auto max-w-7xl px-6 py-8 md:py-12">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {MODULES.map((m, i) => (
+          {visibleModules.map((m, i) => (
             <motion.button
               key={m.key}
               {...fadeUp(0.05 * (i + 1))}
               onClick={() => setActive(m.key)}
               className="
-          group relative isolate overflow-hidden text-left rounded-[28px]
-          bg-white/85 backdrop-blur
-          shadow-[0_8px_26px_rgba(17,24,39,0.10)]
-          ring-1 ring-amber-200/70
-          hover:shadow-[0_14px_36px_rgba(17,24,39,0.16)]
-          transition-all hover:-translate-y-0.5 focus:outline-none
-        "
+                group relative isolate overflow-hidden text-left rounded-[28px]
+                bg-white/85 backdrop-blur
+                shadow-[0_8px_26px_rgba(17,24,39,0.10)]
+                ring-1 ring-amber-200/70
+                hover:shadow-[0_14px_36px_rgba(17,24,39,0.16)]
+                transition-all hover:-translate-y-0.5 focus:outline-none
+              "
             >
               {/* Glow rail */}
-              <div className="pointer-events-none absolute -inset-x-2 -inset-y-1 rounded-[32px] opacity-0 blur-xl transition group-hover:opacity-100"
-                style={{ background: "linear-gradient(90deg, rgba(251,191,36,.25), rgba(99,102,241,.25))" }} />
+              <div
+                className="pointer-events-none absolute -inset-x-2 -inset-y-1 rounded-[32px] opacity-0 blur-xl transition group-hover:opacity-100"
+                style={{ background: "linear-gradient(90deg, rgba(251,191,36,.25), rgba(99,102,241,.25))" }}
+              />
 
               {/* Ribbon inner with angled stripe */}
               <div className="relative rounded-[26px] bg-white/90">
@@ -294,10 +469,6 @@ export default function Modules() {
 
                   {/* Footer line + CTA hint */}
                   <div className="mt-4 flex items-center justify-end w-full">
-                    {/* <span className="inline-flex items-center gap-2 text-xs font-medium text-slate-600">
-                      <span className="inline-block h-2 w-2 rounded-full bg-amber-400" />
-                      Optimized workflow
-                    </span> */}
                     <span className="inline-flex items-center gap-1 text-xs font-semibold text-amber-700 group-hover:translate-x-0.5 transition-transform">
                       View details
                       <svg viewBox="0 0 24 24" className="h-4 w-4">
@@ -305,29 +476,12 @@ export default function Modules() {
                       </svg>
                     </span>
                   </div>
-
-                  {/* Floating shadow puck */}
-                  {/* <div className="mt-4 h-6 rounded-2xl bg-gradient-to-b from-transparent to-black/5 blur-[6px] opacity-70" /> */}
                 </div>
               </div>
             </motion.button>
           ))}
         </div>
-
-        {/* Highlight bar, kept light */}
-        {/* <motion.div {...fadeUp(0.08)} className="mt-10 rounded-2xl border border-amber-200 bg-white/85 p-6 md:p-7 shadow-md backdrop-blur">
-          <div className="flex items-start gap-3">
-            <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-amber-50 border border-amber-200">
-              {HIGHLIGHT.icon}
-            </div>
-            <div>
-              <h4 className="text-lg md:text-xl font-extrabold text-slate-900">{HIGHLIGHT.title}</h4>
-              <p className="text-[15px] md:text-base text-slate-700">{HIGHLIGHT.desc}</p>
-            </div>
-          </div>
-        </motion.div> */}
       </section>
-
 
       {/* ===== Modal ===== */}
       <Modal

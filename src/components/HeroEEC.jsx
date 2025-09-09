@@ -39,21 +39,27 @@ export default function HeroEEC({
 
           {/* CTAs */}
           <div className="mt-8 flex items-center justify-center gap-3 sm:gap-4">
-            {onDemoClick ? (
+            {/* {onDemoClick ? (
               <button
                 onClick={onDemoClick}
                 className="rounded px-5 sm:px-6 py-2.5 text-sm sm:text-base font-semibold text-slate-800 bg-amber-400 hover:bg-amber-500 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-600/20"
               >
-                Get a Demo
+                Contact Us
               </button>
             ) : (
               <Link
                 to="/book-demo"
                 className="rounded px-5 sm:px-6 py-2.5 text-sm sm:text-base font-semibold text-slate-800 bg-amber-400 hover:bg-amber-500 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-600/20"
               >
-                Get a Demo
+                Contact Us
               </Link>
-            )}
+            )} */}
+            <a
+              href="mailto:info@electroniceducare.com?subject=Inquiry%20from%20Website"
+              className="rounded px-5 sm:px-6 py-2.5 text-sm sm:text-base font-semibold text-slate-800 bg-amber-400 hover:bg-amber-500 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-600/20"
+            >
+              Contact Us
+            </a>
 
             {/* <span className="text-slate-400 hidden sm:inline">or</span> */}
 

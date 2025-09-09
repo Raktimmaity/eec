@@ -16,7 +16,7 @@ const Home = () => {
       <Hero />
       <WhyEEC />
       {/* <Highlights /> */}
-      <Features />
+      {/* <Features+ /> */}
       <UserCentric />
       <HeroEEC />
       {/* <Contact /> */}

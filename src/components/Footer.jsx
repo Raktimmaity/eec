@@ -27,13 +27,13 @@ export default function Footer() {
         <div className="relative -top-10 mx-auto max-w-6xl">
           <div className="grid grid-cols-1 md:grid-cols-2 rounded-3xl overflow-hidden shadow-xl">
             {/* Left: contact panel (amber gradient) */}
-            <div className="bg-gradient-to-b from-amber-500 to-amber-600 text-white p-8 md:p-10">
+            <div className="bg-gradient-to-b from-amber-300 to-amber-400 text-slate-800 p-8 md:p-10">
               <h3 className="text-lg font-semibold">Get In Touch With Us</h3>
-              <div className="mt-2 h-0.5 w-12 bg-white/70 rounded" />
+              <div className="mt-2 h-0.5 w-12 bg-black/70 rounded" />
 
               <div className="mt-6 space-y-5">
                 <div className="flex items-start gap-3">
-                  <div className="mt-0.5 text-white/95">
+                  <div className="mt-0.5 text-black/95">
                     <FaPhone />
                   </div>
                   <div className="text-sm leading-6">
@@ -43,7 +43,7 @@ export default function Footer() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="mt-0.5 text-white/95">
+                  <div className="mt-0.5 text-black/95">
                     <FaEnvelope />
                   </div>
                   <div className="text-sm leading-6">

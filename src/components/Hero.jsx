@@ -50,7 +50,7 @@ export default function Hero() {
               variants={up}
               className="inline-block rounded-full border border-amber-300 bg-amber-100 px-3 py-1 text-xs font-medium tracking-wide text-amber-800"
             >
-              Trusted by schools
+              Trusted by partners
             </motion.span>
 
             <motion.h1 variants={up} className="mt-4 text-4xl font-extrabold leading-tight text-slate-900 md:text-5xl">
@@ -74,16 +74,17 @@ export default function Hero() {
             </motion.p>
 
             <motion.div variants={up} className="mt-6 flex flex-col items-center gap-3 sm:flex-row md:justify-start">
-              <Link
+              {/* <Link
                 to="/enquiry"
                 // className="inline-flex items-center justify-center rounded bg-gradient-to-tr from-yellow-300 via-yellow-400 to-yellow-600 text-slate-900 px-5 py-3 font-semibold shadow-lg transition hover:bg-amber-500"
                 className="inline-flex items-center justify-center rounded bg-amber-400 text-slate-900 px-5 py-3 font-semibold shadow-lg transition hover:bg-amber-500"
               >
                 Get a Demo
-              </Link>
+              </Link> */}
               <Link
                 to="/features"
-                className="inline-flex items-center justify-center rounded border border-amber-600/30 bg-white/70 px-5 py-3 font-semibold text-slate-900 backdrop-blur transition hover:bg-white hover:border-amber-600/60"
+                // className="inline-flex items-center justify-center rounded border border-amber-600/30 bg-white/70 px-5 py-3 font-semibold text-slate-900 backdrop-blur transition hover:bg-white hover:border-amber-600/60"
+                className="inline-flex items-center justify-center rounded bg-amber-400 text-slate-900 px-5 py-3 font-semibold shadow-lg transition hover:bg-amber-500"
               >
                 Explore Features →
               </Link>

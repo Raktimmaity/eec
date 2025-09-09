@@ -175,7 +175,7 @@ export default function FeaturesPage({ items = DEFAULT_FEATURES }) {
                 </p>
 
                 {/* Bottom shadow puck => “floating capsule” */}
-                <div className="mt-6 h-6 rounded-2xl bg-gradient-to-b from-transparent to-black/5 blur-[6px] opacity-70" />
+                {/* <div className="mt-6 h-6 rounded-2xl bg-gradient-to-b from-transparent to-black/5 blur-[6px] opacity-70" /> */}
               </div>
 
               {/* Decorative amber dots (unique look, not a card) */}
