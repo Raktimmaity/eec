@@ -54,7 +54,7 @@ export default function Hero() {
             </motion.span>
 
             <motion.h1 variants={up} className="mt-4 text-4xl font-extrabold leading-tight text-slate-900 md:text-5xl">
-              EEC — Empower. Educate. Excel
+              EEC — Educate. Empower. Connect
             </motion.h1>
 
             <motion.p variants={up} className="mt-2 text-3xl font-medium text-amber-700">
