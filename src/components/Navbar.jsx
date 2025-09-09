@@ -32,11 +32,11 @@ export default function Navbar() {
       <nav className="px-4 sm:px-6 py-3 backdrop-blur-xl bg-white/70 border-b border-white/40 shadow-[0_8px_30px_rgb(0,0,0,0.06)]">
         <div className="mx-auto max-w-7xl flex items-center justify-between">
           {/* Brand */}
-          <Link to="/" className="flex items-center gap-3">
+          <Link to="/" className="flex flex-col justify-center items-center">
             <img src="/logo_new.png" alt="EEC Logo" className="h-12 w-auto ml-10 hover:scale-105 transition-all" />
-            {/* <span className="font-extrabold text-xl tracking-tight text-slate-900">
-              <span className="text-amber-600">EEC</span>
-            </span> */}
+            <span className="w-full font-extrabold text-xs text-center tracking-tight text-slate-900">
+              <span className="text-amber-600 w-full text-center ml-8">Electronic Educare</span>
+            </span>
           </Link>
 
           {/* Desktop Links */}
