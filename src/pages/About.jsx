@@ -42,7 +42,7 @@ export default function About() {
           <div className="">
             {/* <h2 className="text-2xl font-bold">Our Story</h2> */}
             <p className="mt-3 text-slate-700 leading-relaxed">
-              <span className="font-extrabold text-amber-500">Electronic Educare (EEC)</span>
+              <span className="font-extrabold text-amber-500">Electronic Educare (EEC) {" "}</span>
               was founded with a simple but ambitious goal: to revolutionize how schools
               manage, teach, and grow. At the turn of the millennium, when many schools
               were still dependent on paper registers, manual fee collection, and endless
