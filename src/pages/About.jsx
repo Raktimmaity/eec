@@ -94,22 +94,21 @@ export default function About() {
           <div className="rounded-2xl border border-amber-200/70 bg-white/90 p-6 shadow-sm backdrop-blur">
             <h2 className="text-2xl font-bold">Our Vision</h2>
             <p className="mt-3 text-slate-700 leading-relaxed">
-              To become a game-changer in the ed-tech world with revolutionary K-12 solutions
-              that transform schools from “good” to “best”, nurture students into champions
-              for life, and add lasting value to every stakeholder in education.
+              At EEC, we envision a future where education transcends boundaries — a world where every learner, every teacher, and every institution is empowered with technology that makes learning smarter, seamless, and truly transformative. Our vision is to be the catalyst of change in the education ecosystem, uniting schools and students through a platform that fosters knowledge, creativity, well-being, and growth. We aim to shape a generation of learners who are not only academically excellent but also confident, emotionally strong, and future-ready.
             </p>
           </div>
 
           {/* Mission */}
           <div className="rounded-2xl border border-amber-200/70 bg-white/90 p-6 shadow-sm backdrop-blur">
             <h2 className="text-2xl font-bold">Our Mission</h2>
+            <p>Our mission is to redefine learning and institutional growth by building an intelligent, inclusive, and integrated education ecosystem. We are committed to:</p>
             <ul className="mt-3 list-disc pl-6 space-y-2 text-slate-700">
-              <li>Empower schools with revolutionary ERP tools, freeing management to focus on growth.</li>
-              <li>Automate communication between students, teachers, parents, and administrators.</li>
-              <li>Support teachers with advanced resources, HD content, and mentoring tools.</li>
-              <li>Enable students with after-school learning, deeper understanding, and
-                employable skills.</li>
-              <li>Promote innovation, speed, and security as the pillars of a modern education system.</li>
+              <li><strong>Empowering Institutions:</strong> Delivering powerful LMS & ERP solutions that simplify operations, enhance teaching, and optimize academic outcomes.</li>
+              <li><strong>Empowering Institutions:</strong> Delivering powerful LMS & ERP solutions that simplify operations, enhance teaching, and optimize academic outcomes.</li>
+              <li><strong>Seamless Collaboration:</strong> Bridging the gap between schools, teachers, parents, and students with transparent communication and real-time tracking.</li>
+              <li><strong>Holistic Education:</strong> Encouraging not just knowledge acquisition but also critical thinking, creativity, mental wellness, and life skills.</li>
+              <li><strong>Scalable & Inclusive Innovation:</strong> Offering solutions that are affordable, flexible, and impactful, ensuring quality education for learners across all backgrounds.</li>
+              <li><strong>Future-Driven Excellence:</strong> Preparing institutions and learners to thrive in a rapidly changing digital-first world, where education is not just taught but truly experienced.</li>
             </ul>
           </div>
 
