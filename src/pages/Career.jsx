@@ -134,8 +134,8 @@ export default function Career() {
           Why Join EEC?
         </motion.h2>
 
-        <div className="mt-6 grid gap-6 md:grid-cols-3">
-          {[
+        <div className="mt-6 grid gap-6 md:grid-cols-1">
+          {/* {[
             { icon: <FaBolt />, title: "Meaningful Impact", desc: "Ship features that improve learning outcomes for thousands." },
             { icon: <FaUsers />, title: "Small, Senior Team", desc: "Work with caring peers who value clarity and ownership." },
             { icon: <FaLaptopCode />, title: "Modern Stack", desc: "React + Vite + Tailwind with thoughtful DX." },
@@ -152,7 +152,8 @@ export default function Career() {
               </div>
               <p className="mt-2 text-slate-700">{x.desc}</p>
             </motion.div>
-          ))}
+          ))} */}
+          <span>EEC is more than just a learning app — it’s a smart education ecosystem that helps schools run smoother and students learn better. With AI-powered tools, personalized learning, and holistic growth, EEC makes education simple, engaging, and future-ready.</span>
         </div>
 
         {/* Perks row */}

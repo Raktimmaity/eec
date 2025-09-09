@@ -57,13 +57,13 @@ export default function About() {
               a robust 360° ERP + LMS solution that connects every aspect of school life
               under one secure, intelligent platform.
             </p>
-            <p className="mt-3 text-slate-700 leading-relaxed">
+            {/* <p className="mt-3 text-slate-700 leading-relaxed">
               As technology advanced—from bulky 700 MHz desktops to today’s multi-GHz devices,
               and from 20 GB hard drives to terabyte-sized SSDs—EEC has kept pace, ensuring
               schools always benefit from innovation and speed. What once seemed futuristic
               is now essential: secure data protection, AI-ready insights, and experiential
               learning tools that go beyond the classroom walls.
-            </p>
+            </p> */}
           </div>
 
           {/* Our Journey */}

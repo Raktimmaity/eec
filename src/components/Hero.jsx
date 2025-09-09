@@ -54,7 +54,7 @@ export default function Hero() {
             </motion.span>
 
             <motion.h1 variants={up} className="mt-4 text-4xl font-extrabold leading-tight text-slate-900 md:text-5xl">
-              Empowering Excellence, Everywhere
+              EEC — Empower. Educate. Excel
             </motion.h1>
 
             <motion.p variants={up} className="mt-2 text-3xl font-medium text-amber-700">
@@ -70,7 +70,7 @@ export default function Hero() {
             </motion.p>
 
             <motion.p variants={up} className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
-              A comprehensive solution that saves time, reduces admin work, and keeps everyone in sync. One Platform for Learning & Efficiency - Get EEC Now!.
+              Where learning is not memorized, but truly lived — adaptive modules, holistic growth, and smart school solutions
             </motion.p>
 
             <motion.div variants={up} className="mt-6 flex flex-col items-center gap-3 sm:flex-row md:justify-start">

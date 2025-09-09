@@ -103,27 +103,22 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10">
             {/* Columns */}
             <div className="md:col-span-3">
-              <h4 className="text-slate-900 font-semibold">School Solutions</h4>
+              <h4 className="text-slate-900 font-semibold">Links</h4>
               <div className="mt-2 h-0.5 w-10 bg-amber-300 rounded" />
               <ul className="mt-3 text-[13px] leading-6 text-slate-700 space-y-1">
-                <li>School Management Software</li>
-                <li>School ERP Software</li>
-                <li>Preschool Management Software</li>
-                <li>School mobile Apps</li>
-                <li>Website Development</li>
-                <li>Experiential Learning Solutions</li>
+                <li> <Link to="/">Home</Link></li>
+                <li> <Link to="/about">About Us</Link></li>
+                <li> <Link to="/gallery">Gallery</Link></li>
               </ul>
             </div>
 
             <div className="md:col-span-3">
-              <h4 className="text-slate-900 font-semibold">Services</h4>
+              <h4 className="text-slate-900 font-semibold">Important Links</h4>
               <div className="mt-2 h-0.5 w-10 bg-amber-300 rounded" />
               <ul className="mt-3 text-[13px] leading-6 text-slate-700 space-y-1">
-                <li>E-Learning Software</li>
-                <li>Online Classes</li>
-                <li>Payment Gateway</li>
-                <li>School Mobile App</li>
-                <li>Finance Management</li>
+                <li><Link to="/features">Features</Link></li>
+                <li><Link to="/modules">Modules</Link></li>
+                <li><Link to="/careers">Careers</Link></li>
               </ul>
             </div>
 
@@ -133,8 +128,8 @@ export default function Footer() {
               <ul className="mt-3 text-[13px] leading-6 text-slate-700 space-y-1">
                 <li><Link to="/contact" className="hover:text-amber-700">Contact Us</Link></li>
                 <li><Link to="/careers" className="hover:text-amber-700">Career</Link></li>
-                <li><Link to="/request-demo" className="hover:text-amber-700">Request A Demo</Link></li>
-                <li><Link to="/account-guidelines" className="hover:text-amber-700">Account Guidelines</Link></li>
+                {/* <li><Link to="/terms-of-services" className="hover:text-amber-700">Terms & Conditions</Link></li>
+                <li><Link to="/privacy-policy" className="hover:text-amber-700">Privacy and </Link></li> */}
               </ul>
             </div>
 

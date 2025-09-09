@@ -15,9 +15,9 @@ const fade = (d = 0) => ({
 // --- Your existing features (kept as-is) ---
 const DEFAULT_FEATURES = [
   {
-    title: "Personalized, AI-Driven Learning",
+    title: "AI – Powered Personalization",
     desc:
-      "EEC utilizes advanced AI to deliver tailored learning experiences, adapting to each student’s unique needs and pace. This dynamic approach ensures focused academic growth, fostering a deeper understanding of subjects.",
+      "Learning paths are tailored using AI, ensuring every child gets content, quizzes, and support that match their pace and strengths.",
     icon: (
       <svg viewBox="0 0 24 24" className="w-7 h-7">
         <path d="M8 10h8M8 14h5M4 9a8 8 0 1116 0v6a8 8 0 11-16 0V9z"
@@ -29,9 +29,9 @@ const DEFAULT_FEATURES = [
     dot: "bg-blue-500",
   },
   {
-    title: "Engaging Interactive Content",
+    title: "Emotional Well-being Integration",
     desc:
-      "With multimedia-rich, real-world-based lessons, EEC transforms traditional learning into an immersive experience. Students engage with content that not only informs but also motivates them to explore and excel.",
+      "Built-in tools for mindfulness, stress tracking, and counseling support help nurture happier and more balanced students.",
     icon: (
       <svg viewBox="0 0 24 24" className="w-7 h-7">
         <path d="M12 3v18M5 8l7-5 7 5M5 16l7 5 7-5"
@@ -43,9 +43,9 @@ const DEFAULT_FEATURES = [
     dot: "bg-violet-500",
   },
   {
-    title: "Seamless Flexiblility and Access",
+    title: "Adapts to Each Child’s Learning Style",
     desc:
-      "EEC offers unmatched flexibility, allowing students to access learning materials anytime, anywhere, on any device. This ensures that learning can continue uninterrupted, adapting to the student's schedule and pace.",
+      "Whether visual, auditory, or hands-on learners—EEC adjusts lessons and assessments to fit how each child learns best.",
     icon: (
       <svg viewBox="0 0 24 24" className="w-7 h-7">
         <rect x="6" y="2" width="12" height="20" rx="2" ry="2"
@@ -57,9 +57,9 @@ const DEFAULT_FEATURES = [
     dot: "bg-slate-600",
   },
   {
-    title: "Collaborative Learning and Future-Ready Skills",
+    title: "One App for Everything",
     desc:
-      "EEC fosters collaboration through froup projects and peer interaction while equipping students with critical skills such as problem-solving, digital literacy, and teamwork. These skills are essential for success in both academic and professional spheres.",
+      "All academic, administrative, and communication needs in a single secure platform—no need for multiple apps.",
     icon: (
       <svg viewBox="0 0 24 24" className="w-7 h-7">
         <path d="M4 19V5m0 9 4-4 4 4 6-6m-2 0h2v2"
@@ -71,9 +71,9 @@ const DEFAULT_FEATURES = [
     dot: "bg-green-500",
   },
   {
-    title: "Personalized Learning Paths",
+    title: "Bridge Between School & Home",
     desc:
-      "EEC will use AI to analyze a student's progress, strengths and Weaknesses, then recomended customized study plans, worksheets then video lessons tailored to their needs",
+      "Parents stay updated in real time on progress, assignments, and emotional health, creating a transparent school–home connection.",
     icon: (
       <svg viewBox="0 0 24 24" className="w-7 h-7">
         <path d="M4 19V5m0 9 4-4 4 4 6-6m-2 0h2v2"
@@ -85,9 +85,23 @@ const DEFAULT_FEATURES = [
     dot: "bg-green-500",
   },
   {
-    title: "Real-Time Performance Insights",
+    title: "Reduces Dependence on Private Tutors",
     desc:
-      "Throgh continues feedback and AI-driven analytics, EEC tracks and monitors student progress, providing immediate insights and recommendations. This ensures that stdents and educators are always aligned with academic goals, facilitating timely interventions.",
+      "Personalized guidance and built-in doubt-solving reduce the need for extra tuition, saving both time and money.",
+    icon: (
+      <svg viewBox="0 0 24 24" className="w-7 h-7">
+        <path d="M4 19V5m0 9 4-4 4 4 6-6m-2 0h2v2"
+          fill="none" stroke="currentColor" strokeWidth="1.8"
+          strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    ),
+    accent: "text-green-600",
+    dot: "bg-green-500",
+  },
+  {
+    title: "Paperless & Eco-Friendly",
+    desc:
+      "Digital assignments, reports, and communication minimize paper use—making learning sustainable and environmentally responsible.",
     icon: (
       <svg viewBox="0 0 24 24" className="w-7 h-7">
         <path d="M4 19V5m0 9 4-4 4 4 6-6m-2 0h2v2"

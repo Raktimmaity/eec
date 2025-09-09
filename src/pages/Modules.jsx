@@ -161,23 +161,7 @@ const MODULES = [
     ],
   },
   /* LMS portals & apps */
-  {
-    key: "mobile",
-    title: "Advanced Learning Experience",
-    accent: "text-pink-600",
-    icon: I.mobile,
-    bullets: [
-      "Interactive e-books",
-      "Adaptive tests & smart quizzes",
-      "Auto-grading & instant results",
-      "Gamification & rewards",
-      "Early performance alerts",
-      "Doubt-solving forums",
-      "Multi-format assignments",
-      "Feedback tools",
-      "Curriculum mapping",
-    ],
-  },
+
   /* Exam Management */
   {
     key: "exam",
@@ -219,6 +203,23 @@ const MODULES = [
       "Teacher uploads",
     ],
   },
+    {
+    key: "mobile",
+    title: "Advanced Learning Experience",
+    accent: "text-pink-600",
+    icon: I.mobile,
+    bullets: [
+      "Interactive e-books",
+      "Adaptive tests & smart quizzes",
+      "Auto-grading & instant results",
+      "Gamification & rewards",
+      "Early performance alerts",
+      "Doubt-solving forums",
+      "Multi-format assignments",
+      "Feedback tools",
+      "Curriculum mapping",
+    ],
+  },
   /* Digital Content (new) */
   {
     key: "digital",
@@ -245,6 +246,63 @@ const MODULES = [
       "Role-based publishing workflow.",
     ],
   },
+  {
+  key: "daily",
+  title: "Daily Mood Journals",
+  accent: "text-rose-600",          // you can keep your old accent if you prefer
+  icon: I.content,                  // reusing existing icon set to avoid design changes
+  bullets: [
+  ],
+},
+  {
+  key: "early",
+  title: "Early Stress Alerts",
+  accent: "text-rose-600",          // you can keep your old accent if you prefer
+  icon: I.content,                  // reusing existing icon set to avoid design changes
+  bullets: [
+  ],
+},
+  {
+  key: "well",
+  title: "Well-being Dashboards",
+  accent: "text-rose-600",          // you can keep your old accent if you prefer
+  icon: I.content,                  // reusing existing icon set to avoid design changes
+  bullets: [
+  ],
+},
+  {
+  key: "balance",
+  title: "Balance Builder",
+  accent: "text-rose-600",          // you can keep your old accent if you prefer
+  icon: I.content,                  // reusing existing icon set to avoid design changes
+  bullets: [
+  ],
+},
+  {
+  key: "programs",
+  title: "Resilience Programs",
+  accent: "text-rose-600",          // you can keep your old accent if you prefer
+  icon: I.content,                  // reusing existing icon set to avoid design changes
+  bullets: [
+  ],
+},
+  {
+  key: "recognition",
+  title: "Recognition for Healthy Habits",
+  accent: "text-rose-600",          // you can keep your old accent if you prefer
+  icon: I.content,                  // reusing existing icon set to avoid design changes
+  bullets: [
+  ],
+},
+  {
+  key: "rewards",
+  title: "Rewards",
+  accent: "text-rose-600",          // you can keep your old accent if you prefer
+  icon: I.content,                  // reusing existing icon set to avoid design changes
+  bullets: [
+  ],
+},
+
 ];
 
 /* ===== Tabs mapping (which cards show under each inner tab) ===== */
@@ -256,16 +314,17 @@ const INNER_TABS = {
 const TAB_TO_KEYS = {
   // MAIN
   ERP: ["school_administration", "student", "teacher", "parent"], // core operational modules (you can add more keys here)
-  LMS: ["everyday", "mobile"],       // LMS + portals/apps
+  LMS: ["everyday", "mobile"],
+  "Emmotional Well-being": ["daily", "early", "well", "balance", "programs", "recognition", "rewards"],
   "Digital Content": ["digital"],
   Website: ["website"],
 
   // EXTRA
   // "GPS Bus Tracking": ["exam"],
-  "Canteen Management": ["hr"],
-  "CCTV-based Attendence": ["fee"],
-  "Bookstore Management": ["fee"],
-  "Hostel Management": ["fee"],
+  // "Canteen Management": ["hr"],
+  // "CCTV-based Attendence": ["fee"],
+  // "Bookstore Management": ["fee"],
+  // "Hostel Management": ["fee"],
 };
 
 /* ===== Modal (kept) ===== */
