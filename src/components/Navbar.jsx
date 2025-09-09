@@ -35,7 +35,7 @@ export default function Navbar() {
           <Link to="/" className="flex flex-col justify-center items-center">
             <img src="/logo_new.png" alt="EEC Logo" className="h-12 w-auto ml-10 hover:scale-105 transition-all" />
             <span className="w-full font-extrabold text-xs text-center tracking-tight text-slate-900">
-              <span className="text-amber-600 w-full text-center ml-8">Electronic Educare</span>
+              <span className="text-yellow-400 w-full text-center tracking-wide pl-10">Electronic Educare</span>
             </span>
           </Link>
 
@@ -61,13 +61,13 @@ export default function Navbar() {
 
           {/* CTA + Mobile Burger */}
           <div className="flex items-center gap-4">
-            <Link
-              to="/enquiry"
+            <a
+              href="mailto:info@electroniceducare.com?subject=Request%20a%20Demo&body=Hello%20EEC%20Team,%0D%0AI%20would%20like%20to%20request%20a%20demo%20for%20your%20platform.%0D%0A"
               // className="hidden md:inline-block rounded bg-gradient-to-tr from-yellow-200 via-yellow-400 to-yellow-600 text-slate-900 px-4 py-2 font-semibold shadow hover:bg-amber-500 transition-all"
               className="hidden md:inline-block rounded bg-amber-400 text-slate-900 px-4 py-2 font-semibold shadow hover:bg-amber-300 transition-all"
             >
               Get a Demo
-            </Link>
+            </a>
 
             <button
               type="button"
@@ -141,12 +141,12 @@ export default function Navbar() {
 
           {/* CTA */}
           <div className="mt-6 px-1">
-            <Link
-              to="/enquiry"
+            <a
+              href="mailto:info@electroniceducare.com?subject=Request%20a%20Demo&body=Hello%20EEC%20Team,%0D%0AI%20would%20like%20to%20request%20a%20demo%20for%20your%20platform.%0D%0A"
               className="block w-full text-center rounded bg-amber-400 text-slate-900 py-2.5 font-semibold shadow hover:bg-amber-500 transition-all"
             >
               Get a Demo
-            </Link>
+            </a>
           </div>
 
           <div className="px-3 py-6 text-xs text-slate-500">
