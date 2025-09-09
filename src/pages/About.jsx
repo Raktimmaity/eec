@@ -42,28 +42,15 @@ export default function About() {
           <div className="">
             {/* <h2 className="text-2xl font-bold">Our Story</h2> */}
             <p className="mt-3 text-slate-700 leading-relaxed">
-              <span className="font-extrabold text-amber-500">Electronic Educare (EEC) {" "}</span>
-              was founded with a simple but ambitious goal: to revolutionize how schools
-              manage, teach, and grow. At the turn of the millennium, when many schools
-              were still dependent on paper registers, manual fee collection, and endless
-              calculations, EEC envisioned a future where technology would automate these
-              tasks and allow educators to focus on what truly matters—teaching and learning.
+              <span className="font-extrabold text-amber-500">Electronic Educare (EEC), {" "}</span>
+              we believe education goes beyond textbooks and exams. Schools today need a partner that not only supports academic excellence but also nurtures emotional well-being and builds stronger connections between students, teachers, and parents.
             </p>
             <p className="mt-3 text-slate-700 leading-relaxed">
-              From the very beginning, EEC has been more than just software. It has been a
-              movement to eliminate inefficiencies, reduce errors, and enable schools to
-              communicate seamlessly with parents, students, teachers, and administrators.
-              Over the years, our platform has grown from a simple management system into
-              a robust 360° ERP + LMS solution that connects every aspect of school life
-              under one secure, intelligent platform.
+              EEC is more than an LMS — it’s a complete AI-powered school ecosystem. From classrooms to staff rooms, from parents to principals, EEC unites every stakeholder on one secure, paperless, and intelligent platform.
             </p>
-            {/* <p className="mt-3 text-slate-700 leading-relaxed">
-              As technology advanced—from bulky 700 MHz desktops to today’s multi-GHz devices,
-              and from 20 GB hard drives to terabyte-sized SSDs—EEC has kept pace, ensuring
-              schools always benefit from innovation and speed. What once seemed futuristic
-              is now essential: secure data protection, AI-ready insights, and experiential
-              learning tools that go beyond the classroom walls.
-            </p> */}
+            <p className="mt-3 text-slate-700 leading-relaxed">
+              Guided by our unique 4R Philosophy — Reflect, Revise, Retrieve, Repeat — EEC ensures learning is continuous, adaptive, and meaningful. With features like personalized AI learning, smart administration, advanced LMS, and well-being monitoring, we help schools create confident learners, empowered teachers, and satisfied parents.
+            </p>
           </div>
 
           {/* Our Journey */}
