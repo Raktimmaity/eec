@@ -26,10 +26,14 @@ export default function About() {
 
         <div className="relative z-10 mx-auto flex h-full max-w-7xl items-center justify-end px-6">
           <motion.div {...fade(0)}>
-            <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white drop-shadow text-right">
+            <h1
+              className="text-3xl md:text-5xl font-extrabold tracking-tight text-white antialiased text-right"
+              style={{ textShadow: "0 2px 10px rgba(0,0,0,0.35)" }}
+            >
               About EEC
             </h1>
           </motion.div>
+
         </div>
         <div className="pointer-events-none absolute -bottom-1 left-0 right-0 h-10 bg-gradient-to-b from-transparent to-white dark:to-white" />
       </section>
