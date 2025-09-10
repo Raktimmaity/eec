@@ -71,48 +71,54 @@ export default function WhyEEC() {
                   aria-pressed={isFlipped}
                   onClick={() => toggleFlip(i)}
                   onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && toggleFlip(i)}
-                  className="flex items-start gap-3 p-4 rounded-xl bg-white/10 backdrop-blur border border-white/10 cursor-pointer select-none"
-                  style={{ perspective: "1000px" }} // gives depth for 3D
+                  className="flex items-start gap-3 p-4 rounded-xl bg-white/10 backdrop-blur border border-white/10 cursor-pointer select-none isolate overflow-hidden"
+                  style={{ perspective: "1000px" }}
                 >
-                  {/* 3D flip wrapper */}
+                  {/* 3D flip wrapper (this transforms) */}
                   <div
-                    className="relative w-full"
+                    className="relative w-full transform-gpu will-change-transform"
                     style={{
                       transformStyle: "preserve-3d",
                       transition: "transform 600ms cubic-bezier(.2,.85,.25,1)",
                       transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
-                      minHeight: "112px", // keep height stable across faces
+                      // ⬇ responsive height so text has room on small screens
+                      minHeight: "clamp(120px, 160px, 200px)",
+                      // minHeight: "170px",
                     }}
                   >
-                    {/* FRONT: icon + title (minimal) */}
+                    {/* FRONT */}
                     <div
                       className="absolute inset-0 flex items-start gap-3"
-                      style={{ backfaceVisibility: "hidden" }}
+                      style={{ backfaceVisibility: "hidden", transform: "translateZ(0)" }}
                     >
-                      <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center text-amber-300 animate-bounce">
+                      <div className="flex-shrink-0 w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center text-amber-300">
                         {f.icon}
                       </div>
                       <div className="pr-2">
-                        <h3 className="font-semibold">{f.title}</h3>
-                        <p className="text-xs text-white/60 mt-1">Click to see details</p>
+                        <h3 className="font-semibold text-sm sm:text-base leading-snug break-words">
+                          {f.title}
+                        </h3>
+                        <p className="text-[11px] sm:text-xs text-white/60 mt-1">Click to see details</p>
                       </div>
                     </div>
 
-                    {/* BACK: details (desc) */}
+                    {/* BACK */}
                     <div
                       className="absolute inset-0 flex items-start gap-3"
-                      style={{
-                        transform: "rotateY(180deg)",
-                        backfaceVisibility: "hidden",
-                      }}
+                      style={{ transform: "rotateY(180deg) translateZ(0)", backfaceVisibility: "hidden" }}
                     >
-                      <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center text-amber-300">
+                      <div className="flex-shrink-0 w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center text-amber-300">
                         {f.icon}
                       </div>
-                      <div className="pr-2">
-                        <h3 className="font-semibold">{f.title}</h3>
-                        <p className="text-sm text-white/80">{f.desc}</p>
-                        <p className="text-[11px] text-white/60 mt-1">Click to flip back</p>
+                      <div className="pr-2 w-full overflow-auto">
+                        <h3 className="font-semibold text-sm sm:text-base leading-snug break-words">
+                          {f.title}
+                        </h3>
+                        {/* ⬇ tighter text + wrap to avoid overflow on tiny widths */}
+                        <p className="text-[13px] sm:text-sm text-white/80 leading-snug break-words [overflow-wrap:anywhere]">
+                          {f.desc}
+                        </p>
+                        <p className="text-[10px] sm:text-[11px] text-white/60 mt-1">Click to flip back</p>
                       </div>
                     </div>
                   </div>

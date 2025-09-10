@@ -203,7 +203,7 @@ const MODULES = [
       "Teacher uploads",
     ],
   },
-    {
+  {
     key: "mobile",
     title: "Advanced Learning Experience",
     accent: "text-pink-600",
@@ -247,61 +247,61 @@ const MODULES = [
     ],
   },
   {
-  key: "daily",
-  title: "Daily Mood Journals",
-  accent: "text-rose-600",          // you can keep your old accent if you prefer
-  icon: I.content,                  // reusing existing icon set to avoid design changes
-  bullets: [
-  ],
-},
+    key: "daily",
+    title: "Daily Mood Journals",
+    accent: "text-rose-600",          // you can keep your old accent if you prefer
+    icon: I.content,                  // reusing existing icon set to avoid design changes
+    bullets: [
+    ],
+  },
   {
-  key: "early",
-  title: "Early Stress Alerts",
-  accent: "text-rose-600",          // you can keep your old accent if you prefer
-  icon: I.content,                  // reusing existing icon set to avoid design changes
-  bullets: [
-  ],
-},
+    key: "early",
+    title: "Early Stress Alerts",
+    accent: "text-rose-600",          // you can keep your old accent if you prefer
+    icon: I.content,                  // reusing existing icon set to avoid design changes
+    bullets: [
+    ],
+  },
   {
-  key: "well",
-  title: "Well-being Dashboards",
-  accent: "text-rose-600",          // you can keep your old accent if you prefer
-  icon: I.content,                  // reusing existing icon set to avoid design changes
-  bullets: [
-  ],
-},
+    key: "well",
+    title: "Well-being Dashboards",
+    accent: "text-rose-600",          // you can keep your old accent if you prefer
+    icon: I.content,                  // reusing existing icon set to avoid design changes
+    bullets: [
+    ],
+  },
   {
-  key: "balance",
-  title: "Balance Builder",
-  accent: "text-rose-600",          // you can keep your old accent if you prefer
-  icon: I.content,                  // reusing existing icon set to avoid design changes
-  bullets: [
-  ],
-},
+    key: "balance",
+    title: "Balance Builder",
+    accent: "text-rose-600",          // you can keep your old accent if you prefer
+    icon: I.content,                  // reusing existing icon set to avoid design changes
+    bullets: [
+    ],
+  },
   {
-  key: "programs",
-  title: "Resilience Programs",
-  accent: "text-rose-600",          // you can keep your old accent if you prefer
-  icon: I.content,                  // reusing existing icon set to avoid design changes
-  bullets: [
-  ],
-},
+    key: "programs",
+    title: "Resilience Programs",
+    accent: "text-rose-600",          // you can keep your old accent if you prefer
+    icon: I.content,                  // reusing existing icon set to avoid design changes
+    bullets: [
+    ],
+  },
   {
-  key: "recognition",
-  title: "Recognition for Healthy Habits",
-  accent: "text-rose-600",          // you can keep your old accent if you prefer
-  icon: I.content,                  // reusing existing icon set to avoid design changes
-  bullets: [
-  ],
-},
+    key: "recognition",
+    title: "Recognition for Healthy Habits",
+    accent: "text-rose-600",          // you can keep your old accent if you prefer
+    icon: I.content,                  // reusing existing icon set to avoid design changes
+    bullets: [
+    ],
+  },
   {
-  key: "rewards",
-  title: "Rewards",
-  accent: "text-rose-600",          // you can keep your old accent if you prefer
-  icon: I.content,                  // reusing existing icon set to avoid design changes
-  bullets: [
-  ],
-},
+    key: "rewards",
+    title: "Rewards",
+    accent: "text-rose-600",          // you can keep your old accent if you prefer
+    icon: I.content,                  // reusing existing icon set to avoid design changes
+    bullets: [
+    ],
+  },
 
 ];
 
@@ -430,10 +430,14 @@ export default function Modules() {
         <div className="absolute inset-0 bg-gradient-to-br from-[#120f08]/20 via-white/10 to-transparent" />
         <div className="relative z-10 mx-auto flex h-full w-full items-center px-6">
           <motion.div {...fadeUp(0)} className="w-full">
-            <h1 className="mt-3 text-3xl md:text-5xl font-extrabold tracking-tight text-white drop-shadow text-right w-full">
+            <h1
+              className="mt-3 text-3xl md:text-5xl font-extrabold tracking-tight text-white antialiased text-right w-full"
+              style={{ textShadow: "0 2px 10px rgba(0,0,0,0.35)" }}
+            >
               Our Modules
             </h1>
           </motion.div>
+
         </div>
         <div className="pointer-events-none absolute -bottom-1 left-0 right-0 h-10 bg-gradient-to-b from-transparent to-white" />
       </section>

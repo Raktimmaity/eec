@@ -129,17 +129,14 @@ export default function FeaturesPage({ items = DEFAULT_FEATURES }) {
         <div className="absolute inset-0 bg-gradient-to-br from-[#120f08]/30 via-[#0b0a09]/10 to-transparent" />
         <div className="relative z-10 mx-auto flex h-full w-full items-center px-6">
           <motion.div {...fade(0)} className="w-full">
-            {/* <span className="inline-flex items-center gap-2 rounded-full border border-amber-200/70 bg-amber-50/70 px-3 py-1 text-xs font-medium text-amber-800 shadow-sm backdrop-blur">
-              <span className="inline-block h-1.5 w-1.5 rounded-full bg-amber-500" />
-              EEC Features
-            </span> */}
-            <h1 className="mt-3 text-3xl md:text-5xl font-extrabold tracking-tight text-white drop-shadow text-right w-full">
+            <h1
+              className="mt-3 text-3xl md:text-5xl font-extrabold tracking-tight text-white antialiased text-right w-full"
+              style={{ textShadow: "0 2px 10px rgba(0,0,0,0.35)" }}
+            >
               Features of EEC
             </h1>
-            {/* <p className="mt-3 max-w-2xl text-sm md:text-base leading-relaxed text-white/90">
-              Crafted with clarity, speed and the EEC amber-glass theme.
-            </p> */}
           </motion.div>
+
         </div>
         <div className="pointer-events-none absolute -bottom-1 left-0 right-0 h-10 bg-gradient-to-b from-transparent to-white" />
       </section>

@@ -35,10 +35,17 @@ export default function Career() {
         <div className="absolute inset-0 bg-gradient-to-br from-[#120f08]/20 via-white/10 to-transparent" />
         <div className="relative z-10 mx-auto flex h-full w-full items-center px-6">
           <motion.div {...fade(0)} className="w-full">
-            <h1 className="mt-3 text-3xl md:text-5xl font-extrabold tracking-tight text-white drop-shadow text-right w-full">
-              Build Your Career at <span className="bg-gradient-to-r from-amber-600 to-yellow-500 bg-clip-text text-transparent"> EEC </span>
+            <h1
+              className="mt-3 text-3xl md:text-5xl font-extrabold tracking-tight text-white antialiased text-right w-full"
+              style={{ textShadow: "0 2px 10px rgba(0,0,0,0.35)" }}
+            >
+              Build Your Career at{" "}
+              <span className="bg-gradient-to-r from-amber-600 to-yellow-500 bg-clip-text text-transparent">
+                EEC
+              </span>
             </h1>
           </motion.div>
+
         </div>
         <div className="pointer-events-none absolute -bottom-1 left-0 right-0 h-10 bg-gradient-to-b from-transparent to-white" />
       </section>

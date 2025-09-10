@@ -108,10 +108,14 @@ export default function Gallery() {
         <div className="absolute inset-0 bg-gradient-to-br from-[#120f08]/20 via-white/10 to-transparent" />
         <div className="relative z-10 mx-auto flex h-full w-full items-center px-6">
           <motion.div {...fade(0)} className="w-full">
-            <h1 className="mt-3 text-3xl md:text-5xl font-extrabold tracking-tight text-white drop-shadow text-right w-full">
+            <h1
+              className="mt-3 text-3xl md:text-5xl font-extrabold tracking-tight text-white antialiased text-right w-full"
+              style={{ textShadow: "0 2px 10px rgba(0,0,0,0.35)" }}
+            >
               Explore Our Gallery
             </h1>
           </motion.div>
+
         </div>
         <div className="pointer-events-none absolute -bottom-1 left-0 right-0 h-10 bg-gradient-to-b from-transparent to-white" />
       </section>
@@ -139,17 +143,17 @@ export default function Gallery() {
           transition-all
         "
             >
-              
+
               {/* subtle glow */}
               <div className="pointer-events-none absolute inset-0 rounded-[18px] opacity-0 group-hover:opacity-100 transition-opacity [background:radial-gradient(220px_72px_at_18%_0%,rgba(251,191,36,0.14),transparent_60%)]" />
-            <div className="absolute left-3 top-2 flex gap-1.5">
-                    <span className="h-2 w-2 rounded-full bg-amber-400" />
-                    <span className="h-2 w-2 rounded-full bg-amber-500" />
-                    <span className="h-2 w-2 rounded-full bg-indigo-400" />
-                  </div>
+              <div className="absolute left-3 top-2 flex gap-1.5">
+                <span className="h-2 w-2 rounded-full bg-amber-400" />
+                <span className="h-2 w-2 rounded-full bg-amber-500" />
+                <span className="h-2 w-2 rounded-full bg-indigo-400" />
+              </div>
               {/* image keeps natural height for masonry effect */}
               <div className="relative overflow-hidden rounded-[12px] bg-white">
-                
+
                 <img
                   src={src}
                   alt={`EEC gallery ${i}`}
